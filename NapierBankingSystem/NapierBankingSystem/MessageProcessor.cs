@@ -11,6 +11,17 @@ namespace NapierBankingSystem
         public string header { get; set; }
         public string body { get; set; }
 
+        public MessageProcessor()
+        {
+            
+        }
+
+        public MessageProcessor(string h, string b)
+        {
+            this.header = h;
+            this.body = b;
+        }
+
         public Message returnMessage()
         {
             Message msg;

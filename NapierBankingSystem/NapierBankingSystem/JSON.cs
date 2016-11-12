@@ -31,6 +31,25 @@ namespace NapierBankingSystem
             }
             return messages;
         }
+
+        public void writeData(List<Message> messages)
+        {
+            List<MessageProcessor> output = new List<MessageProcessor>();
+            JsonSerializer serializer = new JsonSerializer();
+
+            foreach(Message m in messages)
+            {
+                output.Add(m.returnData());
+            }
+
+            using (StreamWriter sw = new StreamWriter(this.fileName))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                sw.WriteLine("{\"messages\": ");
+                sw.WriteLine(JsonConvert.SerializeObject(output, Formatting.Indented));
+                sw.WriteLine("}");
+            }
+        }
         
     }
 }

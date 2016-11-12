@@ -20,6 +20,9 @@ namespace NapierBankingSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        JSON js = new JSON();
+        List<Message> messages;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -28,14 +31,20 @@ namespace NapierBankingSystem
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            JSON js = new JSON();
-            js.fileName = @"C:\Users\admin\desktop\messages.json";
-            List<Message> messages = js.readJSON();
+            messages = new List<Message>();
+            this.js.fileName = @"C:\Users\admin\desktop\messages.json";
+            this.messages = js.readJSON();
             foreach(Message m in messages)
             {
                 label.Content += m.messageID;
                 label_Copy.Content += m.messageBody;
+                m.messageBody += "hi";
             }
+        }
+
+        private void button_Click1(object sender, RoutedEventArgs e)
+        {
+            this.js.writeData(messages);
         }
     }
 }

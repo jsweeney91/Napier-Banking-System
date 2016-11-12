@@ -13,5 +13,9 @@ namespace NapierBankingSystem
             this.messageID = m.header;
             this.messageBody = m.body;
         }
+        public override MessageProcessor returnData()
+        {
+            return new MessageProcessor(this.messageID, this.messageBody);
+        }
     }
 }

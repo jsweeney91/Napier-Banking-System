@@ -11,6 +11,8 @@ namespace NapierBankingSystem
         public String messageID { get; set; }
         public String messageBody { get; set; }
 
+        public abstract MessageProcessor returnData();
+
 
     }
 }
