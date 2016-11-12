@@ -23,6 +23,19 @@ namespace NapierBankingSystem
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            JSON js = new JSON();
+            js.fileName = @"C:\Users\admin\desktop\messages.json";
+            List<Message> messages = js.readJSON();
+            foreach(Message m in messages)
+            {
+                label.Content += m.messageID;
+                label_Copy.Content += m.messageBody;
+            }
         }
     }
 }
