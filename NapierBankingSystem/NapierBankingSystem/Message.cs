@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace NapierBankingSystem
 {
-    abstract class Message
+    public abstract class Message
     {
-        public String messageID { get; set; }
-        public String messageBody { get; set; }
+        public string messageID { get; set; }
+        public string messageBody { get; set; }
+        public string sender { get; set; }
 
         public abstract MessageProcessor returnData();
 

@@ -8,6 +8,8 @@ namespace NapierBankingSystem
 {
     class Tweet : Message
     {
+        public string tweetText { get; set; }
+
         public Tweet(MessageProcessor m)
         {
             this.messageID = m.header;

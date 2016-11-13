@@ -8,14 +8,18 @@ namespace NapierBankingSystem
 {
     class SMS : Message
     {
+        public string messageText;
+
         public SMS(MessageProcessor m)
         {
-            this.messageID = m.header;
+            this.sender = m.header.Substring(1, m.header.Length-1);
             this.messageBody = m.body;
+            this.messageID = m.header;
+            this.messageText = m.body;
         }
         public override MessageProcessor returnData()
         {
             return new MessageProcessor(this.messageID, this.messageBody);
-        }
+        }       
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NapierBankingSystem
 {
-    class MessageProcessor
+    public class MessageProcessor
     {
         public string header { get; set; }
         public string body { get; set; }

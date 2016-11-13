@@ -46,5 +46,11 @@ namespace NapierBankingSystem
         {
             this.js.writeData(messages);
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Window win = new MessageViewer();
+            win.Show();
+        }
     }
 }
