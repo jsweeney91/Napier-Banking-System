@@ -13,7 +13,7 @@ namespace NapierBankingSystem
 
         public static void readMessages()
         {
-            js.fileName = @"C:\Users\admin\desktop\messages.json";
+            js.fileName = @"C:\Users\admin\desktop\messages.bananas";
             messages = js.readJSON();
         }
     }
