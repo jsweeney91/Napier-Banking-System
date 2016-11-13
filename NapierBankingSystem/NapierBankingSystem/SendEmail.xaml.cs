@@ -24,5 +24,35 @@ namespace NapierBankingSystem
         {
             InitializeComponent();
         }
+
+        private void sendButton_Click(object sender, RoutedEventArgs e)
+        {
+            validateInput();
+
+        }
+        private bool validateInput()
+        {
+            errorLbl.Content = "";
+            bool canAdd = true;
+            if (subjectTextbox.Text.Length >= 20 ) 
+            {
+                errorLbl.Content += "Subject must be less than 20 characters \n";
+                canAdd = false;
+            }else if (String.IsNullOrEmpty(subjectTextbox.Text))
+            {
+                errorLbl.Content += "Please enter a subject \n";
+                canAdd = false;
+            }
+            if(messageTextbox.Text.Length >= 1028)
+            {
+                errorLbl.Content += "Message too long (1028 characters max) \n";
+                canAdd = false;
+            }else if (string.IsNullOrEmpty(messageTextbox.Text))
+            {
+                errorLbl.Content += "Please enter a message \n";
+                canAdd = false;
+            }
+            return canAdd;
+        }
     }
 }

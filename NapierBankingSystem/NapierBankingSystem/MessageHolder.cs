@@ -35,7 +35,6 @@ namespace NapierBankingSystem
             {
                 int tempVal;
                 Int32.TryParse(s.Substring(1, 9), out tempVal);
-                MessageBox.Show(tempVal.ToString());
                 if (s.StartsWith("E"))
                 {
                     if (tempVal > currentEmailID)

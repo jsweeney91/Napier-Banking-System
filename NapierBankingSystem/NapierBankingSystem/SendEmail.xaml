@@ -9,13 +9,14 @@
       Title="SendEmail">
 
     <Grid>
-        <Label x:Name="senderLabel" Content="Email" HorizontalAlignment="Left" Margin="17,44,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="subjectLabel" Content="Subject" HorizontalAlignment="Left" Margin="17,104,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="messageLabel" Content="Message" HorizontalAlignment="Left" Margin="17,152,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="emailTextbox" HorizontalAlignment="Left" Height="23" Margin="137,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <TextBox x:Name="subjectTextbox" HorizontalAlignment="Left" Height="23" Margin="137,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <TextBox x:Name="messageTextbox" HorizontalAlignment="Left" Height="101" Margin="137,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <Button x:Name="sendButton" Content="Send" HorizontalAlignment="Left" Margin="215,270,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="senderLabel" Content="Email" HorizontalAlignment="Left" Margin="17,21,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="subjectLabel" Content="Subject" HorizontalAlignment="Left" Margin="17,59,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="messageLabel" Content="Message" HorizontalAlignment="Left" Margin="17,98,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="emailTextbox" HorizontalAlignment="Left" Height="23" Margin="137,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
+        <TextBox x:Name="subjectTextbox" HorizontalAlignment="Left" Height="23" Margin="137,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
+        <TextBox x:Name="messageTextbox" HorizontalAlignment="Left" Height="101" Margin="137,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
+        <Button x:Name="sendButton" Content="Send" HorizontalAlignment="Left" Margin="215,270,0,0" VerticalAlignment="Top" Width="75" Click="sendButton_Click"/>
+        <Label x:Name="errorLbl" Content="" HorizontalAlignment="Left" Margin="17,215,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
