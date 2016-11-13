@@ -36,6 +36,7 @@ namespace NapierBankingSystem
                 messageListBox.Items.Add(createGrid(proc.header, proc.body, splitval[splitval.Length - 1]));
             }
         }
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             MessageHolder.readMessages();
