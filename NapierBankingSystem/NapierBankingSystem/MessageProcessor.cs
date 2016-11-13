@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace NapierBankingSystem
 {
@@ -13,7 +14,7 @@ namespace NapierBankingSystem
 
         public MessageProcessor()
         {
-            
+
         }
 
         public MessageProcessor(string h, string b)
@@ -22,23 +23,30 @@ namespace NapierBankingSystem
             this.body = b;
         }
 
-        public Message returnMessage()
+        private Message convertMessage(String messageIn)
         {
-            Message msg;
+            if (messageIn.StartsWith("E"))
+            {
+                return new Email(messageIn);
+            }
+            else if (messageIn.StartsWith("S"))
+            {
+                return new SMS(messageIn);
+            }
+            else if (messageIn.StartsWith("T"))
+            {
+                return new Tweet(messageIn);
+            }else
+            {
+                MessageBox.Show("Invalid input "+messageIn);
+                return null;
+            }            
+        }
 
-            if (this.header.StartsWith("E"))
-            {
-                msg = new Email(this);               
-            }
-            else if (this.header.StartsWith("S"))
-            {
-                msg = new SMS(this);
-            }
-            else
-            {
-                msg = new Tweet(this);
-            }
 
+        public Message loadMessage()
+        {
+            Message msg=convertMessage(this.header + " " + this.body);
             return msg;
         }
     }

@@ -29,7 +29,20 @@ namespace NapierBankingSystem
         {
             if (validateInput())
             {
-             
+                string currentID = (MessageHolder.currentTwitterID + 1).ToString();
+                if (currentID.Length < 9)
+                {
+                    string zeros = String.Concat(Enumerable.Repeat("0", 9 - currentID.Length));
+                    currentID = zeros + currentID;
+                    
+                }
+                currentID = "T" + currentID;
+                MessageBox.Show(currentID);
+
+                Tweet tweet = new Tweet(currentID +twitterHandleTextbox.Text+" "+messageTextbox.Text);
+                MessageHolder.currentTwitterID++;
+                MessageHolder.addMessage(currentID, tweet);
+                
             }
         }
 

@@ -27,11 +27,27 @@ namespace NapierBankingSystem
 
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
-            validateInput();
+            if (validateInput())
+            {
+                string currentID = (MessageHolder.currentEmailID + 1).ToString();
+                if (currentID.Length < 9)
+                {
+                    string zeros = String.Concat(Enumerable.Repeat("0", 9 - currentID.Length));
+                    currentID = zeros + currentID;
+
+                }
+                MessageBox.Show(currentID);
+                currentID = "E" + currentID;
+
+                Email email = new Email(currentID + " " + emailTextbox.Text + " " + " "+subjectTextbox.Text+ " " +messageTextbox.Text);
+                MessageHolder.currentEmailID++;
+                MessageHolder.addMessage(currentID, email);
+            }
 
         }
         private bool validateInput()
         {
+           
             errorLbl.Content = "";
             bool canAdd = true;
             if (subjectTextbox.Text.Length >= 20 ) 
@@ -43,7 +59,11 @@ namespace NapierBankingSystem
                 errorLbl.Content += "Please enter a subject \n";
                 canAdd = false;
             }
-            if(messageTextbox.Text.Length >= 1028)
+            else if (subjectTextbox.Text.Length < 20)
+            {
+               subjectTextbox.Text += String.Concat(Enumerable.Repeat(" ", 20 - subjectTextbox.Text.Length));
+            }
+            if (messageTextbox.Text.Length >= 1028)
             {
                 errorLbl.Content += "Message too long (1028 characters max) \n";
                 canAdd = false;

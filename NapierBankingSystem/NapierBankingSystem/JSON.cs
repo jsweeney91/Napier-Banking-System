@@ -24,8 +24,8 @@ namespace NapierBankingSystem
                 IList<JToken> results = jsonData["messages"].Children().ToList();
                 IList<MessageProcessor> output = new List<MessageProcessor>();
                 foreach(JToken result in results)
-                {              
-                    Message msg = JsonConvert.DeserializeObject<MessageProcessor>(result.ToString()).returnMessage();
+                {
+                    Message msg = JsonConvert.DeserializeObject<MessageProcessor>(result.ToString()).loadMessage();
                     messages.Add(msg.messageID, msg);
                 }
             }
@@ -35,10 +35,11 @@ namespace NapierBankingSystem
         public void writeData()
         {
             List<MessageProcessor> output = new List<MessageProcessor>();
-            JsonSerializer serializer = new JsonSerializer();
-            foreach(Message mes in MessageHolder.messages.Values){
-                output.Add(new MessageProcessor(mes.messageID, mes.messageBody));
+            foreach(Message m in MessageHolder.messages.Values)
+            {
+                output.Add(m.returnData());
             }
+            JsonSerializer serializer = new JsonSerializer();
             using (StreamWriter sw = new StreamWriter(this.fileName))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {

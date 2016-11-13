@@ -29,7 +29,18 @@ namespace NapierBankingSystem
         {
             if (validateInput())
             {
-                
+                string currentID = (MessageHolder.currentSMSID + 1).ToString();
+                if (currentID.Length < 9)
+                {
+                    string zeros = String.Concat(Enumerable.Repeat("0", 9 - currentID.Length));
+                    currentID = zeros + currentID;
+
+                }
+                currentID = "S" + currentID;
+
+                SMS sms = new SMS(currentID +" "+ phoneNoTextbox.Text + " " + messageTextbox.Text);
+                MessageHolder.currentSMSID++;
+                MessageHolder.addMessage(currentID, sms);
             }
         }
         public bool validateInput()

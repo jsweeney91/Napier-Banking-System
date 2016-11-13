@@ -34,7 +34,6 @@ namespace NapierBankingSystem
             {
                 string messageType = m.GetType().ToString();
                 string[] splitval = messageType.Split('.');
-
                 messageListBox.Items.Add(createGrid(m.messageID,m.messageBody,splitval[splitval.Length-1]));
             }
            

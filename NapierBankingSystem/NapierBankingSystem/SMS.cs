@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace NapierBankingSystem
 {
     class SMS : Message
     {
-        public string messageText;
-
-        public SMS(MessageProcessor m)
+        public SMS(String messageIn)
         {
-            this.sender = m.header.Substring(1, m.header.Length-1);
-            this.messageBody = m.body;
-            this.messageID = m.header;
-            this.messageText = m.body;
+            this.messageID = messageIn.Substring(0, 10);
+            this.sender = messageIn.Substring(messageID.Length, 14);
+            this.messageBody = messageIn.Substring(25,messageIn.Length-25);
+   
         }
+    
+
         public override MessageProcessor returnData()
         {
-            return new MessageProcessor(this.messageID, this.messageBody);
+            return new MessageProcessor(this.messageID, this.sender + " " + this.messageBody);
         }       
     }
 }
