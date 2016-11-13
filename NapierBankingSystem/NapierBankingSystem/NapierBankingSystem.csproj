@@ -64,6 +64,18 @@
     <Compile Include="MessageViewer.xaml.cs">
       <DependentUpon>MessageViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SendEmail.xaml.cs">
+      <DependentUpon>SendEmail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SendMessage.xaml.cs">
+      <DependentUpon>SendMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SendSMS.xaml.cs">
+      <DependentUpon>SendSMS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SendTweet.xaml.cs">
+      <DependentUpon>SendTweet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SMS.cs" />
     <Compile Include="Tweet.cs" />
     <Page Include="MainWindow.xaml">
@@ -81,6 +93,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MessageViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SendEmail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SendMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SendSMS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SendTweet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -52,5 +52,11 @@ namespace NapierBankingSystem
             Window win = new MessageViewer();
             win.Show();
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Window win = new SendMessage();
+            win.Show();
+        }
     }
 }
