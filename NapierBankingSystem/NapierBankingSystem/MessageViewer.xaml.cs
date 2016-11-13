@@ -25,17 +25,21 @@ namespace NapierBankingSystem
         {
             InitializeComponent();
         }
-
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void refreshData()
         {
-            MessageHolder.readMessages();
             messageListBox.Items.Clear();
-            foreach(Message m in MessageHolder.messages.Values)
+            foreach (Message m in MessageHolder.messages.Values)
             {
                 string messageType = m.GetType().ToString();
                 string[] splitval = messageType.Split('.');
-                messageListBox.Items.Add(createGrid(m.messageID,m.messageBody,splitval[splitval.Length-1]));
+                MessageProcessor proc = m.returnData();
+                messageListBox.Items.Add(createGrid(proc.header, proc.body, splitval[splitval.Length - 1]));
             }
+        }
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageHolder.readMessages();
+            refreshData();
            
         }
 
@@ -100,6 +104,11 @@ namespace NapierBankingSystem
             }
 
             MessageBox.Show(msg);
+        }
+
+        private void messageListBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            refreshData();
         }
     }
 }
