@@ -24,5 +24,43 @@ namespace NapierBankingSystem
         {
             InitializeComponent();
         }
+
+        private void sendButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (validateInput())
+            {
+                string messageID = (MessageHolder.currentTwitterID + 1).ToString();
+                if (messageID.Length < 9)
+                {
+                    string zeros = "";
+                    zeros = String.Concat(Enumerable.Repeat("0", (9 - messageID.Length)));
+                    messageID = zeros+messageID;
+                }
+
+               string header = "T" + messageID;
+               string body = twitterHandleTextbox.Text;
+               body += " "+messageTextbox.Text;
+               MessageProcessor msgP = new MessageProcessor(header,body);
+               MessageHolder.addMessage(header, msgP.returnMessage());
+            }
+        }
+
+        private bool validateInput()
+        {
+            errorLbl.Content = "";
+            bool canAdd = true;
+            if (twitterHandleTextbox.Text.Length > 15 || String.IsNullOrEmpty(twitterHandleTextbox.Text))  
+            {
+                errorLbl.Content += "Twitter handle must be less than 15 characters \n";
+                canAdd = false;
+            }
+            if (messageTextbox.Text.Length > 140 || String.IsNullOrEmpty(messageTextbox.Text)) 
+            {
+                errorLbl.Content += "Message cant be more than 140 characters \n";
+                canAdd = false;
+            }
+            return canAdd;
+            
+        }
     }
 }

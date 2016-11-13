@@ -25,6 +25,7 @@ namespace NapierBankingSystem
         public Message returnMessage()
         {
             Message msg;
+
             if (this.header.StartsWith("E"))
             {
                 msg = new Email(this);               

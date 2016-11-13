@@ -12,7 +12,8 @@
         <Label x:Name="messageLabel" Content="Message" HorizontalAlignment="Left" Margin="17,96,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="phoneNoTextbox" HorizontalAlignment="Left" Height="23" Margin="137,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
         <TextBox x:Name="messageTextbox" HorizontalAlignment="Left" Height="101" Margin="137,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <Button x:Name="sendButton" Content="Send" HorizontalAlignment="Left" Margin="215,270,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="sendButton" Content="Send" HorizontalAlignment="Left" Margin="215,270,0,0" VerticalAlignment="Top" Width="75" Click="sendButton_Click"/>
+        <Label x:Name="errorLbl" Content="" HorizontalAlignment="Left" Margin="10,208,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

@@ -25,7 +25,7 @@ namespace NapierBankingSystem
         }
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        {     
             ComboBoxItem itm = (ComboBoxItem)mailTypeSelection.SelectedValue;
             MessageBox.Show(itm.Content.ToString());
             if (itm.Content.ToString() == "Email")

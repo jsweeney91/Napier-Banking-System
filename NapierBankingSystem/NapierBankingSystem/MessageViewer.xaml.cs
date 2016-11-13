@@ -30,7 +30,7 @@ namespace NapierBankingSystem
         {
             MessageHolder.readMessages();
             messageListBox.Items.Clear();
-            foreach(Message m in MessageHolder.messages)
+            foreach(Message m in MessageHolder.messages.Values)
             {
                 string messageType = m.GetType().ToString();
                 string[] splitval = messageType.Split('.');
@@ -99,6 +99,7 @@ namespace NapierBankingSystem
                 Label blk = (Label)elm;
                 msg += blk.Content;
             }
+
             MessageBox.Show(msg);
         }
     }

@@ -13,9 +13,9 @@ namespace NapierBankingSystem
     {
         public string fileName { get; set; }
 
-        public List<Message> readJSON()
+        public Dictionary<string, Message> readJSON()
         {
-            List<Message> messages = new List<Message>();
+            Dictionary<string, Message> messages = new Dictionary<string, Message>();
             MessageProcessor convert = new MessageProcessor();
             if (this.fileName != null)
             {
@@ -26,22 +26,19 @@ namespace NapierBankingSystem
                 foreach(JToken result in results)
                 {              
                     Message msg = JsonConvert.DeserializeObject<MessageProcessor>(result.ToString()).returnMessage();
-                    messages.Add(msg);
+                    messages.Add(msg.messageID, msg);
                 }
             }
             return messages;
         }
 
-        public void writeData(List<Message> messages)
+        public void writeData()
         {
             List<MessageProcessor> output = new List<MessageProcessor>();
             JsonSerializer serializer = new JsonSerializer();
-
-            foreach(Message m in messages)
-            {
-                output.Add(m.returnData());
+            foreach(Message mes in MessageHolder.messages.Values){
+                output.Add(new MessageProcessor(mes.messageID, mes.messageBody));
             }
-
             using (StreamWriter sw = new StreamWriter(this.fileName))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {

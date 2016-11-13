@@ -21,7 +21,7 @@ namespace NapierBankingSystem
     public partial class MainWindow : Window
     {
         JSON js = new JSON();
-        List<Message> messages;
+        Dictionary<string, Message> messages;
 
         public MainWindow()
         {
@@ -31,20 +31,13 @@ namespace NapierBankingSystem
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            messages = new List<Message>();
-            this.js.fileName = @"C:\Users\admin\desktop\messages.json";
-            this.messages = js.readJSON();
-            foreach(Message m in messages)
-            {
-                label.Content += m.messageID;
-                label_Copy.Content += m.messageBody;
-                m.messageBody += "hi";
-            }
+            messages = new Dictionary<string, Message>();
+           
         }
 
         private void button_Click1(object sender, RoutedEventArgs e)
         {
-            this.js.writeData(messages);
+       
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
