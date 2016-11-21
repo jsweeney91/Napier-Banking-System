@@ -27,6 +27,7 @@ namespace NapierBankingSystem
         {
             InitializeComponent();
             MessageHolder.readMessages();
+            MessageHolder.refresher.addObserver(this);
             
         }
 
@@ -37,7 +38,11 @@ namespace NapierBankingSystem
         }
         public void receiveNotification()
         {
-            MessageBox.Show("hi");
+            this.Dispatcher.Invoke(() =>
+            {
+                this.notificationFeedbackLbl.Content = (MessageHolder.messages.Count - MessageHolder.refresher.numberOfMessages).ToString();
+            });
+            
         }
 
         private void addMessageButton_Click(object sender, RoutedEventArgs e)

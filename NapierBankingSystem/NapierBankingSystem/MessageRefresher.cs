@@ -44,7 +44,6 @@ namespace NapierBankingSystem
 
         private void notifyObservers()
         {
-            MessageBox.Show("hi");
             foreach (Observer o in observers)
             {
                 o.receiveNotification();
