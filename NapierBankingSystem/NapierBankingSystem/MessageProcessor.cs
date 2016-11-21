@@ -27,9 +27,7 @@ namespace NapierBankingSystem
         {
             if (messageIn.StartsWith("E"))
             {
-                string sender = messageIn.Substring(10, messageIn.Length - 10).Split(' ')[1];
-                string subject = messageIn.Substring(messageIn.IndexOf(sender) + (sender.Length)+1, 20);
-                if (subject.StartsWith("SIR"))
+                if (getEmailType(messageIn) == "SIR")
                 {
                     return new SIR(messageIn);
                 }
@@ -58,6 +56,19 @@ namespace NapierBankingSystem
         {
             Message msg=convertMessage(this.header + " " + this.body);
             return msg;
+        }
+        private string getEmailType(string messageIn)
+        {
+            string sender = messageIn.Substring(10, messageIn.Length - 10).Split(' ')[1];
+            string subject = messageIn.Substring(messageIn.IndexOf(sender) + (sender.Length) + 1, 20);
+            if (subject.StartsWith("SIR"))
+            {
+                return "SIR";
+            }
+            else
+            {
+                return "Email";
+            }
         }
     }
 }

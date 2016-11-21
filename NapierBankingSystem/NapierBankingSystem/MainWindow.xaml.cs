@@ -26,7 +26,7 @@ namespace NapierBankingSystem
         public MainWindow()
         {
             InitializeComponent();
-           // MessageHolder.readMessages();
+            MessageHolder.readMessages();
 
         }
 
