@@ -19,29 +19,33 @@ namespace NapierBankingSystem
     /// </summary>
     public partial class SendMessage : Window
     {
+        private double originalHeight;
+
         public SendMessage()
         {
             InitializeComponent();
+            this.originalHeight = this.Height;
         }
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {     
             ComboBoxItem itm = (ComboBoxItem)mailTypeSelection.SelectedValue;
+            Page pg = new Page();
+
             if (itm.Content.ToString() == "Email")
             {
-                Page pg = new SendEmail();
-                contentFrame.Content = pg;     
+                pg = new SendEmail();          
             }
             else if(itm.Content.ToString() == "SMS")
-            {
-                Page pg = new SendSMS();
-                contentFrame.Content = pg;
+            {                
+                pg = new SendSMS();
             }
             else if (itm.Content.ToString() == "Tweet")
             {
-                Page pg = new SendTweet();
-                contentFrame.Content = pg;
+                pg = new SendTweet();
             }
+            contentFrame.Height = pg.Height;
+            contentFrame.Content = pg;
         }
     }
 }

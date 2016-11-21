@@ -14,7 +14,7 @@ namespace NapierBankingSystem
             this.messageID = messageIn.Substring(0, 10);
             this.sender = messageIn.Substring(messageID.Length, 14);
             this.messageBody = messageIn.Substring(25,messageIn.Length-25);
-   
+            this.seen = false;
         }
     
 

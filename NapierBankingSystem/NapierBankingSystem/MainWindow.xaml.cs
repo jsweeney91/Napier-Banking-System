@@ -50,11 +50,11 @@ namespace NapierBankingSystem
             Window win = new SendMessage();
             win.Show();
         }
-
-        private void notification_click(object sender, RoutedEventArgs e)
+        
+        private void notificationFeedbackLbl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-           
+            Window notificationPanel = new NotificationPanel();
+            notificationPanel.Show();
         }
-
     }
 }

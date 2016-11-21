@@ -1,0 +1,19 @@
+﻿<Window x:Class="NapierBankingSystem.NotificationPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NapierBankingSystem"
+        mc:Ignorable="d"
+        Title="NotificationPanel" Height="352.941" Width="340.336">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135*"/>
+            <ColumnDefinition Width="11*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Logo_png" Margin="10,0,15,225" Source="Logo.png" Stretch="UniformToFill" Grid.ColumnSpan="2"/>
+        <Label x:Name="headerLbl" Content="Notifications" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" FontFamily="Titillium"/>
+        <ListBox x:Name="notificationListBox" HorizontalAlignment="Left" Height="143" Margin="25,131,0,0" VerticalAlignment="Top" Width="272"/>
+
+    </Grid>
+</Window>

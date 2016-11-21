@@ -65,6 +65,9 @@
     <Compile Include="MessageViewer.xaml.cs">
       <DependentUpon>MessageViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NotificationPanel.xaml.cs">
+      <DependentUpon>NotificationPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Observable.cs" />
     <Compile Include="Observer.cs" />
     <Compile Include="SendEmail.xaml.cs">
@@ -100,6 +103,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MessageViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NotificationPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

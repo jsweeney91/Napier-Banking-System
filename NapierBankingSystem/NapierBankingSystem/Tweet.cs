@@ -15,7 +15,8 @@ namespace NapierBankingSystem
         {
             this.messageID = messageIn.Substring(0, 10);
             this.sender = messageIn.Substring(messageID.Length,messageIn.Length-messageID.Length).Split(' ')[1];
-            this.messageBody = messageIn.Substring((messageID.Length + sender.Length+1), messageIn.Length-(messageID.Length + sender.Length+1));            
+            this.messageBody = messageIn.Substring((messageID.Length + sender.Length+1), messageIn.Length-(messageID.Length + sender.Length+1));
+            this.seen = false;
         }
 
         public override MessageProcessor returnData()

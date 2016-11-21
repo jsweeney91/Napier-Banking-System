@@ -27,6 +27,7 @@ namespace NapierBankingSystem
                 foreach(JToken result in results)
                 {
                     Message msg = JsonConvert.DeserializeObject<MessageProcessor>(result.ToString()).loadMessage();
+                    msg.seen = true;
                     messages.Add(msg.messageID, msg);
                 }
             }

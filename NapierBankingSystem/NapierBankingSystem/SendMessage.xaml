@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NapierBankingSystem"
         mc:Ignorable="d"
-        Title="SendMessage" Height="425.211" Width="362.185">
+        Title="SendMessage" Height="509.211" Width="362.185">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="mailTypeSelection" HorizontalAlignment="Left" Margin="118,41,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged" Height="22">
+        <ComboBox x:Name="mailTypeSelection" HorizontalAlignment="Left" Margin="113,126,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged" Height="22">
             <ComboBoxItem Content="Email"/>
             <ComboBoxItem Content="SMS"/>
             <ComboBoxItem Content="Tweet"/>
         </ComboBox>
-        <Label x:Name="emailTypeLabel" Content="Mail Type" HorizontalAlignment="Left" Margin="147,10,0,0" VerticalAlignment="Top" Height="26" Width="61"/>
-        <Frame x:Name="contentFrame" Content="" HorizontalAlignment="Left" Height="312" Margin="0,72,0,0" VerticalAlignment="Top" Width="354" NavigationUIVisibility="Hidden"/>
+        <Label x:Name="emailTypeLabel" Content="Mail Type" HorizontalAlignment="Left" Margin="142,95,0,0" VerticalAlignment="Top" Height="26" Width="61"/>
+        <Frame x:Name="contentFrame" Content="" HorizontalAlignment="Left" Height="312" Margin="0,156,0,0" VerticalAlignment="Top" Width="354" NavigationUIVisibility="Hidden"/>
+        <Image x:Name="Logo_png" Margin="10,1,15,374" Source="Logo.png" Stretch="Fill"/>
 
 
     </Grid>
