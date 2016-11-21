@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NapierBankingSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="274.02">
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="122,254,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="52,75,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="Label" HorizontalAlignment="Left" Margin="396,75,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button_Copy" Content="Button" HorizontalAlignment="Left" Margin="323,254,0,0" VerticalAlignment="Top" Width="75" Click="button_Click1"/>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="283,298,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
-        <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="33,216,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
-        <Button x:Name="button3" Content="Button" HorizontalAlignment="Left" Margin="215,165,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
-
+        <Button x:Name="viewMessagesButton" Content="ok" HorizontalAlignment="Left" Margin="147,129,0,0" VerticalAlignment="Top" Width="105" Height="26" Click="viewMessagesButton_Click"/>
+        <Label x:Name="label" Content="View messages" HorizontalAlignment="Left" Margin="23,129,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="addMessageButton" Content="ok" HorizontalAlignment="Left" Margin="147,168,0,0" VerticalAlignment="Top" Width="105" Height="26" Click="addMessageButton_Click"/>
+        <Label x:Name="label_Copy" Content="Add message" HorizontalAlignment="Left" Margin="23,168,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="addMessagesButton" Content="ok" HorizontalAlignment="Left" Margin="147,203,0,0" VerticalAlignment="Top" Width="105" Height="26"/>
+        <Label x:Name="label_Copy1" Content="Add Messages" HorizontalAlignment="Left" Margin="23,203,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button_Copy2" Content="ok" HorizontalAlignment="Left" Margin="147,242,0,0" VerticalAlignment="Top" Width="105" Height="26"/>
+        <Label x:Name="label_Copy2" Content="Label" HorizontalAlignment="Left" Margin="23,242,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="Logo_png" Margin="0,0,-2,235" Source="Logo.png" Stretch="Fill"/>
     </Grid>
 </Window>

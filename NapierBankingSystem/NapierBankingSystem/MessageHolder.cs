@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 
 namespace NapierBankingSystem
@@ -10,17 +11,19 @@ namespace NapierBankingSystem
     public static class MessageHolder
     {
         private static JSON js = new JSON();
-        public static Dictionary<string, Message> messages;
+        public static Dictionary<string, Message> messages = new Dictionary<string, Message>();
         public static int currentEmailID;
         public static int currentTwitterID;
         public static int currentSMSID;
         public static string[] incidentTypes = { "Theft","Staff Attack","ATM Theft","Raid","Customer Attack","Staff Abuse","Bomb Threat","Terrorism","Suspicious Incident","Intelligence","Cash Loss"};
+        public static MessageRefresher refresher = MessageRefresher.getInstance(); 
 
         public static void readMessages()
         {
             js.fileName = @"C:\Users\admin\desktop\messages.json";
             messages = js.readJSON();
             setCurrentIDS();
+            refresher.numberOfMessages = messages.Count;
         }
 
         public static void addMessage(string id, Message m)

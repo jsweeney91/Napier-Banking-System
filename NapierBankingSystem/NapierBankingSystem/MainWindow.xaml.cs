@@ -18,7 +18,7 @@ namespace NapierBankingSystem
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window,Observer
     {
         JSON js = new JSON();
         Dictionary<string, Message> messages;
@@ -27,36 +27,24 @@ namespace NapierBankingSystem
         {
             InitializeComponent();
             MessageHolder.readMessages();
-
+            
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            messages = new Dictionary<string, Message>();
-           
-        }
-
-        private void button_Click1(object sender, RoutedEventArgs e)
-        {
-       
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void viewMessagesButton_Click(object sender, RoutedEventArgs e)
         {
             Window win = new MessageViewer();
             win.Show();
         }
+        public void receiveNotification()
+        {
+            MessageBox.Show("hi");
+        }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void addMessageButton_Click(object sender, RoutedEventArgs e)
         {
             Window win = new SendMessage();
             win.Show();
         }
 
-        private void button3_Click(object sender, RoutedEventArgs e)
-        {
-            Window tst = new Test();
-            tst.Show();
-        }
     }
 }

@@ -61,9 +61,12 @@
     </ApplicationDefinition>
     <Compile Include="MessageHolder.cs" />
     <Compile Include="MessageProcessor.cs" />
+    <Compile Include="MessageRefresher.cs" />
     <Compile Include="MessageViewer.xaml.cs">
       <DependentUpon>MessageViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Observable.cs" />
+    <Compile Include="Observer.cs" />
     <Compile Include="SendEmail.xaml.cs">
       <DependentUpon>SendEmail.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
