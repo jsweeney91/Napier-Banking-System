@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace NapierBankingSystem
 {
-    class Tweet : Message
+    public class Tweet : Message
     {
         public string tweetText { get; set; }
 
@@ -20,17 +20,17 @@ namespace NapierBankingSystem
             string[] hashtags = this.messageBody.Split(' ');
             foreach(string h in hashtags)
             {
-                if (h.StartsWith("#"))
+                if (h.StartsWith("#") || h.StartsWith("@"))
                 {
                     string tag = h;
-                   if (MessageHolder.hashtags.ContainsKey(tag))
+                   if (MessageHolder.mentions.ContainsKey(tag))
                    {
-                        MessageHolder.hashtags[tag].Add(this.messageID);
+                        MessageHolder.mentions[tag].Add(this.messageID);
                    }
                     else
                     {
-                        MessageHolder.hashtags.Add(tag, new List<String>());
-                        MessageHolder.hashtags[tag].Add(this.messageID);
+                        MessageHolder.mentions.Add(tag, new List<String>());
+                        MessageHolder.mentions[tag].Add(this.messageID);
                     }                   
                 }
             }

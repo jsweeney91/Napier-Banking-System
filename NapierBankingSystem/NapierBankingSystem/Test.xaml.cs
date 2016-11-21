@@ -35,10 +35,10 @@ namespace NapierBankingSystem
         }
         public static void testHashtags()
         {
-            foreach (string k in MessageHolder.hashtags.Keys)
+            foreach (string k in MessageHolder.mentions.Keys)
             {
                 MessageBox.Show(k);
-                foreach (string u in MessageHolder.hashtags[k])
+                foreach (string u in MessageHolder.mentions[k])
                 {
                     MessageBox.Show(MessageHolder.messages[u].messageBody);
                 }

@@ -8,7 +8,7 @@
         Title="ViewMessage" Height="351.903" Width="326.99">
     <Grid>
         <Image x:Name="Logo_png" Margin="10,0,10,235" Source="Logo.png" Stretch="Fill"/>
-        <Frame x:Name="frame" Content="Frame" HorizontalAlignment="Left" Height="220" Margin="10,91,0,0" VerticalAlignment="Top" Width="299"/>
+        <Frame x:Name="frame" Content="" HorizontalAlignment="Left" Height="220" Margin="10,91,0,0" VerticalAlignment="Top" Width="299"/>
 
     </Grid>
 </Window>

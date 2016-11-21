@@ -19,9 +19,26 @@ namespace NapierBankingSystem
     /// </summary>
     public partial class ViewMessage : Window
     {
-        public ViewMessage()
+        public ViewMessage(string M)
+        {
+           InitializeComponent();
+           getFrameData(M);     
+        }
+
+        public ViewMessage(Page pageIN)
         {
             InitializeComponent();
+            this.Content = pageIN;
         }
+
+        public void getFrameData(string m)
+        {
+            if (m.StartsWith("T"))
+            {
+                Page tweet = new ViewTweet((Tweet) MessageHolder.messages[m]);
+                frame.Content = tweet;
+            }
+        }
+       
     }
 }

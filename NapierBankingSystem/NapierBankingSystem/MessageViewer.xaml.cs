@@ -125,15 +125,22 @@ namespace NapierBankingSystem
 
         private void messageListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            String msg = "";
-            Grid message = (Grid)messageListBox.SelectedValue;
-            foreach(UIElement elm in message.Children){
-                
-                Label blk = (Label)elm;
-                msg += blk.Content;
+            try
+            {
+                String msg = "";
+                Grid message = (Grid)messageListBox.SelectedValue;
+                msg += ((Label)message.Children[0]).Content;
+                if (msg.StartsWith("T"))
+                {
+                    Window messV = new ViewMessage(msg);
+                    messV.Show();
+                }
             }
+            catch(NullReferenceException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }              
 
-            MessageBox.Show(msg);
         }
 
         private void messageListBox_Loaded(object sender, RoutedEventArgs e)
