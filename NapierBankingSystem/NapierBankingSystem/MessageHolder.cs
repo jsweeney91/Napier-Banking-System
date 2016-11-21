@@ -20,6 +20,7 @@ namespace NapierBankingSystem
         public static string[] incidentTypes = { "Theft","Staff Attack","ATM Theft","Raid","Customer Attack","Staff Abuse","Bomb Threat","Terrorism","Suspicious Incident","Intelligence","Cash Loss"};
         public static MessageRefresher refresher = MessageRefresher.getInstance();
         public static Dictionary<string, string> textspeak = new Dictionary<string, string>();
+        public static Dictionary<string, List<string>> hashtags = new Dictionary<string, List<String>>();
 
         public static void readMessages()
         {
@@ -74,5 +75,6 @@ namespace NapierBankingSystem
                 }
             }
         }
+
     }
 }

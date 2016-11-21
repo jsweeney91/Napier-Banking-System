@@ -1,0 +1,14 @@
+﻿<Window x:Class="NapierBankingSystem.ViewMessage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NapierBankingSystem"
+        mc:Ignorable="d"
+        Title="ViewMessage" Height="351.903" Width="326.99">
+    <Grid>
+        <Image x:Name="Logo_png" Margin="10,0,10,235" Source="Logo.png" Stretch="Fill"/>
+        <Frame x:Name="frame" Content="Frame" HorizontalAlignment="Left" Height="220" Margin="10,91,0,0" VerticalAlignment="Top" Width="299"/>
+
+    </Grid>
+</Window>

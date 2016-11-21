@@ -31,8 +31,18 @@ namespace NapierBankingSystem
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            MessageProcessor proc = new MessageProcessor();
-            proc.convertMessage(textBox.Text);
+            testHashtags();
+        }
+        public static void testHashtags()
+        {
+            foreach (string k in MessageHolder.hashtags.Keys)
+            {
+                MessageBox.Show(k);
+                foreach (string u in MessageHolder.hashtags[k])
+                {
+                    MessageBox.Show(MessageHolder.messages[u].messageBody);
+                }
+            }
         }
 
     }

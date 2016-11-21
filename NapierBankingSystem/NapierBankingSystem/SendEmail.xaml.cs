@@ -46,7 +46,8 @@ namespace NapierBankingSystem
         }
         private bool validateInput()
         {
-           
+           // string pattern = "[a - z0 - 9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+
             errorLbl.Content = "";
             bool canAdd = true;
             if (subjectTextbox.Text.Length >= 20 ) 

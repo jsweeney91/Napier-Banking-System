@@ -50,9 +50,17 @@ namespace NapierBankingSystem
         {
             errorLbl.Content = "";
             bool canAdd = true;
-            if (twitterHandleTextbox.Text.Length > 15 || String.IsNullOrEmpty(twitterHandleTextbox.Text))  
+            if (twitterHandleTextbox.Text.StartsWith("@"))
             {
-                errorLbl.Content += "Twitter handle must be less than 15 characters \n";
+                if (twitterHandleTextbox.Text.Length > 15 || String.IsNullOrEmpty(twitterHandleTextbox.Text))
+                {
+                    errorLbl.Content += "Twitter handle be between 0 and 15 characters \n";
+                    canAdd = false;
+                }
+            }
+            else
+            {
+                errorLbl.Content += "Twitter handles must start with @ \n";
                 canAdd = false;
             }
             if (messageTextbox.Text.Length > 140 || String.IsNullOrEmpty(messageTextbox.Text)) 

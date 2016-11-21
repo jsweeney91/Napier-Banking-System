@@ -56,5 +56,11 @@ namespace NapierBankingSystem
             Window notificationPanel = new NotificationPanel();
             notificationPanel.Show();
         }
+
+        private void button_Copy2_Click(object sender, RoutedEventArgs e)
+        {
+            Window tet = new Test();
+            tet.Show();
+        }
     }
 }

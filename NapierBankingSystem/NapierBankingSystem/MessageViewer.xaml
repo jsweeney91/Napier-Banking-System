@@ -5,11 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NapierBankingSystem"
         mc:Ignorable="d"
-        Title="MessageViewer" Height="494.118" Width="642.017">
-    <Grid>
-
-        <Button x:Name="button" Content="Button" Width="76" Height="50" Margin="162,0,163,10" Click="button_Click"/>
-        <ListBox x:Name="messageListBox" HorizontalAlignment="Left" Height="172" Margin="10,10,0,0" VerticalAlignment="Top" Width="614" SelectionChanged="messageListBox_SelectionChanged" Loaded="messageListBox_Loaded"/>
+        Title="MessageViewer" Height="499.786" Width="469.006">
+    <Grid Margin="0,0,2,26">
+        <ListBox x:Name="messageListBox" HorizontalAlignment="Left" Height="152" Margin="24,212,0,0" VerticalAlignment="Top" Width="391" SelectionChanged="messageListBox_SelectionChanged" Loaded="messageListBox_Loaded"/>
+        <Image x:Name="Logo_png" Margin="10,10,10,306" Source="Logo.png" Stretch="Fill"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="227,384,0,0" VerticalAlignment="Top" Width="188" Height="29" SelectionChanged="comboBox_SelectionChanged">
+            <ListBoxItem Content="All messages" IsSelected="True"/>
+            <ListBoxItem Content="Standard Emails"/>
+            <ListBoxItem Content="SIR Emails"/>
+            <ListBoxItem Content="Tweets"/>
+            <ListBoxItem Content="SMS messages"/>
+        </ComboBox>
+        <Label x:Name="label" Content="Message Viewer" HorizontalAlignment="Left" Margin="24,156,0,0" VerticalAlignment="Top" Cursor="None" FontSize="16"/>
+        <Label x:Name="label1" Content="Message Type" HorizontalAlignment="Left" Margin="114,387,0,0" VerticalAlignment="Top"/>
 
 
 

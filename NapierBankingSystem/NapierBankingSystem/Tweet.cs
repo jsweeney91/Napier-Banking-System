@@ -17,6 +17,23 @@ namespace NapierBankingSystem
             this.sender = messageIn.Substring(messageID.Length,messageIn.Length-messageID.Length).Split(' ')[1];
             this.messageBody = messageIn.Substring((messageID.Length + sender.Length+1), messageIn.Length-(messageID.Length + sender.Length+1));
             this.seen = false;
+            string[] hashtags = this.messageBody.Split(' ');
+            foreach(string h in hashtags)
+            {
+                if (h.StartsWith("#"))
+                {
+                    string tag = h;
+                   if (MessageHolder.hashtags.ContainsKey(tag))
+                   {
+                        MessageHolder.hashtags[tag].Add(this.messageID);
+                   }
+                    else
+                    {
+                        MessageHolder.hashtags.Add(tag, new List<String>());
+                        MessageHolder.hashtags[tag].Add(this.messageID);
+                    }                   
+                }
+            }
         }
 
         public override MessageProcessor returnData()

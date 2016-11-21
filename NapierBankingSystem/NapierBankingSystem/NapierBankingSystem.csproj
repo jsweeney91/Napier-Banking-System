@@ -89,6 +89,9 @@
       <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tweet.cs" />
+    <Compile Include="ViewMessage.xaml.cs">
+      <DependentUpon>ViewMessage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -128,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

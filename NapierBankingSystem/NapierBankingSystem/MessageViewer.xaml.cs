@@ -26,32 +26,51 @@ namespace NapierBankingSystem
             InitializeComponent();
         }
 
-        private void refreshData()
+        private void refreshData(string typeIn)
         {
-            MessageBox.Show("hello");
-            messageListBox.Items.Clear();
-            foreach (Message m in MessageHolder.messages.Values)
+            if (typeIn == "all")
             {
-                string messageType = m.GetType().ToString();
-                string[] splitval = messageType.Split('.');
-                MessageProcessor proc = m.returnData();
-                string body = proc.body;
-                foreach(string k in MessageHolder.textspeak.Keys)
+                messageListBox.Items.Clear();
+                foreach (Message m in MessageHolder.messages.Values)
                 {
-                    if (body.Contains(k))
+                    string messageType = m.GetType().ToString();
+                    string[] splitval = messageType.Split('.');
+                    MessageProcessor proc = m.returnData();
+                    string body = proc.body;
+                    foreach (string k in MessageHolder.textspeak.Keys)
                     {
-                        body = body.Replace(k, k + "<" + MessageHolder.textspeak[k] + ">");
+                        if (body.Contains(k))
+                        {
+                            body = body.Replace(k, k + "<" + MessageHolder.textspeak[k] + ">");
+                        }
+                    }
+                    messageListBox.Items.Add(createGrid(proc.header, body, splitval[splitval.Length - 1]));
+                }
+            }
+            else
+            {
+                messageListBox.Items.Clear();
+                foreach (Message m in MessageHolder.messages.Values)
+                {
+                    string messageType = m.GetType().ToString();
+                    string[] splitval = messageType.Split('.');
+                    MessageProcessor proc = m.returnData();
+                    string body = proc.body;
+
+                    if (splitval[splitval.Length - 1] == typeIn)
+                    {
+                        foreach (string k in MessageHolder.textspeak.Keys)
+                        {
+                            if (body.Contains(k))
+                            {
+                                body = body.Replace(k, k + "<" + MessageHolder.textspeak[k] + ">");
+                            }
+                        }
+
+                        messageListBox.Items.Add(createGrid(proc.header, body, splitval[splitval.Length - 1]));
                     }
                 }
-                messageListBox.Items.Add(createGrid(proc.header, body, splitval[splitval.Length - 1]));
             }
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageHolder.readMessages();
-            refreshData();
-           
         }
 
         private Grid createGrid(string header,string body,string messageType)
@@ -119,7 +138,33 @@ namespace NapierBankingSystem
 
         private void messageListBox_Loaded(object sender, RoutedEventArgs e)
         {
-            refreshData();
+            refreshData("all");
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListBoxItem itm = (ListBoxItem)comboBox.SelectedValue;
+            MessageBox.Show(comboBox.SelectedValue.ToString());
+            if(itm.Content.ToString()== "All messages")
+            {
+                refreshData("all");
+            }
+            else if (itm.Content.ToString() == "Tweets")
+            {
+                refreshData("Tweet");
+            }
+            else if (itm.Content.ToString() == "Standard Emails")
+            {
+                refreshData("Email");
+            }
+            else if (itm.Content.ToString() == "SIR Emails")
+            {
+                refreshData("SIR");
+            }
+            else if (itm.Content.ToString() == "SMS messages")
+            {
+                refreshData("SMS");
+            }
         }
     }
 }
