@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -16,14 +18,24 @@ namespace NapierBankingSystem
         public static int currentTwitterID;
         public static int currentSMSID;
         public static string[] incidentTypes = { "Theft","Staff Attack","ATM Theft","Raid","Customer Attack","Staff Abuse","Bomb Threat","Terrorism","Suspicious Incident","Intelligence","Cash Loss"};
-        public static MessageRefresher refresher = MessageRefresher.getInstance(); 
+        public static MessageRefresher refresher = MessageRefresher.getInstance();
+        public static Dictionary<string, string> textspeak = new Dictionary<string, string>();
 
         public static void readMessages()
         {
+            getTextspeak();            
             js.fileName = @"C:\Users\admin\desktop\messages.json";
             messages = js.readJSON();
             setCurrentIDS();
             refresher.numberOfMessages = messages.Count;
+        }
+
+        public static void getTextspeak()
+        {
+            CSVReader r = new CSVReader();
+            string path = @"../../Resources/textwords.csv";
+            r.fileName = path;
+            textspeak = r.readFile();
         }
 
         public static void addMessage(string id, Message m)

@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CSVReader.cs" />
     <Compile Include="MessageHolder.cs" />
     <Compile Include="MessageProcessor.cs" />
     <Compile Include="MessageRefresher.cs" />

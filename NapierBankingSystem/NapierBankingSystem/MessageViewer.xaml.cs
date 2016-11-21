@@ -25,15 +25,25 @@ namespace NapierBankingSystem
         {
             InitializeComponent();
         }
+
         private void refreshData()
         {
+            MessageBox.Show("hello");
             messageListBox.Items.Clear();
             foreach (Message m in MessageHolder.messages.Values)
             {
                 string messageType = m.GetType().ToString();
                 string[] splitval = messageType.Split('.');
                 MessageProcessor proc = m.returnData();
-                messageListBox.Items.Add(createGrid(proc.header, proc.body, splitval[splitval.Length - 1]));
+                string body = proc.body;
+                foreach(string k in MessageHolder.textspeak.Keys)
+                {
+                    if (body.Contains(k))
+                    {
+                        body = body.Replace(k, k + "<" + MessageHolder.textspeak[k] + ">");
+                    }
+                }
+                messageListBox.Items.Add(createGrid(proc.header, body, splitval[splitval.Length - 1]));
             }
         }
 
