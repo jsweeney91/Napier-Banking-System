@@ -23,11 +23,20 @@ namespace NapierBankingSystem
             this.body = b;
         }
 
-        private Message convertMessage(String messageIn)
+        public Message convertMessage(String messageIn)
         {
             if (messageIn.StartsWith("E"))
             {
-                return new Email(messageIn);
+                string sender = messageIn.Substring(10, messageIn.Length - 10).Split(' ')[1];
+                string subject = messageIn.Substring(messageIn.IndexOf(sender) + (sender.Length)+1, 20);
+                if (subject.StartsWith("SIR"))
+                {
+                    return new SIR(messageIn);
+                }
+                else
+                {
+                    return new Email(messageIn);
+                }
             }
             else if (messageIn.StartsWith("S"))
             {
@@ -36,9 +45,10 @@ namespace NapierBankingSystem
             else if (messageIn.StartsWith("T"))
             {
                 return new Tweet(messageIn);
-            }else
+            }
+            else
             {
-                MessageBox.Show("Invalid input "+messageIn);
+                MessageBox.Show("Invalid input " + messageIn);
                 return null;
             }            
         }

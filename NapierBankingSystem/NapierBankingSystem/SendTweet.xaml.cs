@@ -39,7 +39,7 @@ namespace NapierBankingSystem
                 currentID = "T" + currentID;
                 MessageBox.Show(currentID);
 
-                Tweet tweet = new Tweet(currentID +twitterHandleTextbox.Text+" "+messageTextbox.Text);
+                Tweet tweet = new Tweet(currentID +" "+twitterHandleTextbox.Text+" "+messageTextbox.Text);
                 MessageHolder.currentTwitterID++;
                 MessageHolder.addMessage(currentID, tweet);
                 

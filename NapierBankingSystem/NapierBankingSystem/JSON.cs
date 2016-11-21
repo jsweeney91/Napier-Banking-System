@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace NapierBankingSystem
 {
@@ -40,6 +41,7 @@ namespace NapierBankingSystem
                 output.Add(m.returnData());
             }
             JsonSerializer serializer = new JsonSerializer();
+            MessageBox.Show(serializer.ToString());
             using (StreamWriter sw = new StreamWriter(this.fileName))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {

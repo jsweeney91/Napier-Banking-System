@@ -26,7 +26,7 @@ namespace NapierBankingSystem
         public MainWindow()
         {
             InitializeComponent();
-            MessageHolder.readMessages();
+           // MessageHolder.readMessages();
 
         }
 
@@ -51,6 +51,12 @@ namespace NapierBankingSystem
         {
             Window win = new SendMessage();
             win.Show();
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            Window tst = new Test();
+            tst.Show();
         }
     }
 }
