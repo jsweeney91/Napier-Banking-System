@@ -14,6 +14,7 @@ namespace NapierBankingSystem
         public static int currentEmailID;
         public static int currentTwitterID;
         public static int currentSMSID;
+        public static string[] incidentTypes = { "Theft","Staff Attack","ATM Theft","Raid","Customer Attack","Staff Abuse","Bomb Threat","Terrorism","Suspicious Incident","Intelligence","Cash Loss"};
 
         public static void readMessages()
         {

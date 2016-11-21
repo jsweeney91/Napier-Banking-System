@@ -36,7 +36,6 @@ namespace NapierBankingSystem
                     currentID = zeros + currentID;
 
                 }
-                MessageBox.Show(currentID);
                 currentID = "E" + currentID;
 
                 Email email = new Email(currentID + " " + emailTextbox.Text + " " + " "+subjectTextbox.Text+ " " +messageTextbox.Text);
