@@ -51,5 +51,10 @@ namespace NapierBankingSystem
             win.Show();
         }
 
+        private void notification_click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
     }
 }
