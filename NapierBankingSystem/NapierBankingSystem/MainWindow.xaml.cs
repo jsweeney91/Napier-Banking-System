@@ -64,5 +64,11 @@ namespace NapierBankingSystem
             Window set = new Settings();
             set.Show();
         }
+
+        private void addMessagesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window set = new PlaintextInput();
+            set.Show();
+        }
     }
 }

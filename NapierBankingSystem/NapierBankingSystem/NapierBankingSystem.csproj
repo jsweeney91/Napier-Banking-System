@@ -74,6 +74,9 @@
     </Compile>
     <Compile Include="Observable.cs" />
     <Compile Include="Observer.cs" />
+    <Compile Include="PlaintextInput.xaml.cs">
+      <DependentUpon>PlaintextInput.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SendEmail.xaml.cs">
       <DependentUpon>SendEmail.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NotificationPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlaintextInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

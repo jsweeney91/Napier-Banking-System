@@ -52,7 +52,6 @@ namespace NapierBankingSystem
                 output.Add(m.returnData());
             }
             JsonSerializer serializer = new JsonSerializer();
-            MessageBox.Show(serializer.ToString());
             using (StreamWriter sw = new StreamWriter(this.fileName))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {

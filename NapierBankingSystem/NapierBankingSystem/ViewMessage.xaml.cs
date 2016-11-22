@@ -33,6 +33,11 @@ namespace NapierBankingSystem
 
         public void getFrameData(string m)
         {
+            if (MessageHolder.messages[m].seen == false)
+            {
+                MessageHolder.messages[m].seen = true;
+                MessageHolder.refresher.addNewSeen();
+            }
             if (m.StartsWith("T"))
             {
                 Page tweet = new ViewTweet((Tweet) MessageHolder.messages[m]);
@@ -43,6 +48,6 @@ namespace NapierBankingSystem
                 frame.Content = gen;
             }
         }
-       
+
     }
 }

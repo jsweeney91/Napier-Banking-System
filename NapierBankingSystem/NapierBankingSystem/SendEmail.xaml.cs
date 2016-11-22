@@ -52,11 +52,11 @@ namespace NapierBankingSystem
             bool canAdd = true;
             if (subjectTextbox.Text.Length >= 20 ) 
             {
-                errorLbl.Content += "Subject must be less than 20 characters \n";
+                errorLbl.Content += "Subject must be less than 20 characters "+Environment.NewLine;
                 canAdd = false;
             }else if (String.IsNullOrEmpty(subjectTextbox.Text))
             {
-                errorLbl.Content += "Please enter a subject \n";
+                errorLbl.Content += "Please enter a subject "+Environment.NewLine;
                 canAdd = false;
             }
             else if (subjectTextbox.Text.Length < 20)
@@ -65,11 +65,11 @@ namespace NapierBankingSystem
             }
             if (messageTextbox.Text.Length >= 1028)
             {
-                errorLbl.Content += "Message too long (1028 characters max) \n";
+                errorLbl.Content += "Message too long (1028 characters max) "+Environment.NewLine;
                 canAdd = false;
             }else if (string.IsNullOrEmpty(messageTextbox.Text))
             {
-                errorLbl.Content += "Please enter a message \n";
+                errorLbl.Content += "Please enter a message "+Environment.NewLine;
                 canAdd = false;
             }
             return canAdd;

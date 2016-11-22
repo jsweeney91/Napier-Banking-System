@@ -28,8 +28,8 @@ namespace NapierBankingSystem
         public void assignData(Tweet t)
         {
             string labeltext = "";
-            labeltext += t.sender + "\n";
-            labeltext += t.messageBody;
+            labeltext += "Sender: "+ t.sender + Environment.NewLine;
+            labeltext += "Message text: "+ t.messageBody+ Environment.NewLine;
             tweetContentLabel.Content = labeltext;
             getHashTags(t.messageID);
         }

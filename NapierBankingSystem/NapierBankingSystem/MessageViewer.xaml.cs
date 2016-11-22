@@ -130,6 +130,12 @@ namespace NapierBankingSystem
                 String msg = "";
                 Grid message = (Grid)messageListBox.SelectedValue;
                 msg += ((Label)message.Children[0]).Content;
+                if (MessageHolder.messages[msg].seen == false)
+                {
+                    MessageHolder.messages[msg].seen = true;
+                    MessageHolder.refresher.addNewSeen();
+                }
+
                 Window messV = new ViewMessage(msg);
                 messV.Show();
             }
@@ -149,7 +155,6 @@ namespace NapierBankingSystem
         {
             messageListBox.SelectedItem = null;
             ListBoxItem itm = (ListBoxItem)comboBox.SelectedValue;
-            MessageBox.Show(comboBox.SelectedValue.ToString());
             if(itm.Content.ToString()== "All messages")
             {
                 refreshData("all");

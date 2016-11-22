@@ -25,9 +25,9 @@
         <Label x:Name="label" Content="Incident Type" HorizontalAlignment="Left" Margin="17,63,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Sort Code" HorizontalAlignment="Left" Margin="17,105,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="3"/>
         <ComboBox x:Name="incidentTypeCombo" HorizontalAlignment="Left" Margin="137,67,0,0" Grid.Row="1" VerticalAlignment="Top" Width="153"/>
-        <TextBox x:Name="sortcode1Tb" HorizontalAlignment="Left" Height="21" Margin="137,1,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="29" Grid.RowSpan="2"/>
-        <TextBox x:Name="sortCode2tb" HorizontalAlignment="Left" Height="21" Margin="200,1,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="28" Grid.RowSpan="2"/>
-        <TextBox x:Name="sortCode3tb" HorizontalAlignment="Left" Height="21" Margin="259,1,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="28" Grid.RowSpan="2"/>
+        <TextBox x:Name="sortcode1Tb" HorizontalAlignment="Left" Height="21" Margin="137,1,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="29" Grid.RowSpan="2"/>
+        <TextBox x:Name="sortCode2tb" HorizontalAlignment="Left" Height="21" Margin="200,1,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="28" Grid.RowSpan="2"/>
+        <TextBox x:Name="sortCode3tb" HorizontalAlignment="Left" Height="21" Margin="259,1,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="28" Grid.RowSpan="2"/>
         <Label x:Name="label2" Content="-" HorizontalAlignment="Left" Margin="176,105,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <Label x:Name="label2_Copy" Content="-" HorizontalAlignment="Left" Margin="236,105,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2"/>
     </Grid>

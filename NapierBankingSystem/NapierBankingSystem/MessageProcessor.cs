@@ -60,8 +60,11 @@ namespace NapierBankingSystem
 
         private string getEmailType(string messageIn)
         {
-            string sender = messageIn.Substring(10, messageIn.Length - 10).Split(' ')[1];
-            string subject = messageIn.Substring(messageIn.IndexOf(sender) + (sender.Length) + 1, 20);
+            string messageID = messageIn.Substring(0, 10);
+            messageIn = messageIn.Substring(11);
+            string sender = messageIn.Split(' ')[0];
+            string subject = messageIn.Substring(sender.Length + 1, 20);
+            int size = subject.Length + sender.Length;
             if (subject.StartsWith("SIR"))
             {
                 return "SIR";

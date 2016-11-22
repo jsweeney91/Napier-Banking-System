@@ -50,25 +50,24 @@ namespace NapierBankingSystem
             string phoneNo = phoneNoTextbox.Text.Replace(" ", "");
             phoneNo = phoneNoTextbox.Text.Replace("+", "");
             long n;
-            MessageBox.Show(phoneNo);
             bool isNumeric = long.TryParse(phoneNo, out n);
 
             if (!isNumeric || string.IsNullOrEmpty(phoneNo))
             {                
-                errorLbl.Content += "Please enter a valid number(International format) \n";
+                errorLbl.Content += "Please enter a valid number(International format) "+Environment.NewLine;
                 canAdd = false;
             }else if (phoneNo.Length != 12)
             {
-                errorLbl.Content += "Please enter a valid number(International format) \n";
+                errorLbl.Content += "Please enter a valid number(International format) "+Environment.NewLine;
                 canAdd = false;
             }
             if (messageTextbox.Text.Length >= 140 )
             {
-                errorLbl.Content += "140 Character maximum for message text \n";
+                errorLbl.Content += "140 Character maximum for message text "+Environment.NewLine;
                 canAdd = false;
             }else if (string.IsNullOrEmpty(messageTextbox.Text))
             {
-                errorLbl.Content += "Please enter a message \n";
+                errorLbl.Content += "Please enter a message "+Environment.NewLine;
                 canAdd = false;
             }
 

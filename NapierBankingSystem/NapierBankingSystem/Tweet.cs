@@ -22,10 +22,13 @@ namespace NapierBankingSystem
             {
                 if (h.StartsWith("#") || h.StartsWith("@"))
                 {
-                    string tag = h;
+                   string tag = h;
                    if (MessageHolder.mentions.ContainsKey(tag))
                    {
-                        MessageHolder.mentions[tag].Add(this.messageID);
+                        if (!MessageHolder.mentions[tag].Contains(this.messageID))
+                        {
+                            MessageHolder.mentions[tag].Add(this.messageID);
+                        }
                    }
                     else
                     {

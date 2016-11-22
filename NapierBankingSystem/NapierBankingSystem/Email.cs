@@ -15,13 +15,14 @@ namespace NapierBankingSystem
         public Email(string messageIn)
         {
             this.messageID = messageIn.Substring(0, 10);
-            messageIn = messageIn.Substring(10, messageIn.Length-10);
-            this.sender = messageIn.Split(' ')[1];
-            this.subject = messageIn.Substring(sender.Length+2, 20);
+            messageIn = messageIn.Substring(11);
+            this.sender = messageIn.Split(' ')[0];
+            this.subject = messageIn.Substring(sender.Length+1,20);
             int size = subject.Length + sender.Length;
-            this.messageBody = messageIn.Substring(size,messageIn.Length-size);
+            this.messageBody = messageIn.Substring(messageIn.IndexOf(subject)+subject.Length);
             this.seen = false;
             bool hasChanged = true;
+
             while (hasChanged)
             {
                 Regex regex = new Regex(@"\S+\.\S+");

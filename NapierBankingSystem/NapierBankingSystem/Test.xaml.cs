@@ -33,11 +33,11 @@ namespace NapierBankingSystem
         {
             testHashtags();
         }
+
         public static void testHashtags()
         {
             foreach (string k in MessageHolder.mentions.Keys)
             {
-                MessageBox.Show(k);
                 foreach (string u in MessageHolder.mentions[k])
                 {
                     MessageBox.Show(MessageHolder.messages[u].messageBody);

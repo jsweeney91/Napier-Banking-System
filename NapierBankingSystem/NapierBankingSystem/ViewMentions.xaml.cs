@@ -28,10 +28,22 @@ namespace NapierBankingSystem
         public void populatePage(string hashtag)
         {
             this.mentionLabel.Content = hashtag;
-            foreach(string m in MessageHolder.mentions[hashtag])
+            
+            foreach (string m in MessageHolder.mentions[hashtag])
             {
                 messagesListbox.Items.Add(MessageHolder.messages[m].messageID);
             }
+            if (hashtag.StartsWith("@"))
+            {
+                foreach(string m in MessageHolder.messages.Keys)
+                {
+                    if (MessageHolder.messages[m].sender == hashtag)
+                    {
+                        messagesListbox.Items.Add(MessageHolder.messages[m].messageID);
+                    }
+                }
+            }
+            
             Window win = new ViewMessage(this);
             win.Show();
         }

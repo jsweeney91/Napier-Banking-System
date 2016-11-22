@@ -37,7 +37,6 @@ namespace NapierBankingSystem
                     
                 }
                 currentID = "T" + currentID;
-                MessageBox.Show(currentID);
 
                 Tweet tweet = new Tweet(currentID +" "+twitterHandleTextbox.Text+" "+messageTextbox.Text);
                 MessageHolder.currentTwitterID++;
@@ -54,18 +53,18 @@ namespace NapierBankingSystem
             {
                 if (twitterHandleTextbox.Text.Length > 15 || String.IsNullOrEmpty(twitterHandleTextbox.Text))
                 {
-                    errorLbl.Content += "Twitter handle be between 0 and 15 characters \n";
+                    errorLbl.Content += "Twitter handle be between 0 and 15 characters "+Environment.NewLine;
                     canAdd = false;
                 }
             }
             else
             {
-                errorLbl.Content += "Twitter handles must start with @ \n";
+                errorLbl.Content += "Twitter handles must start with @ "+Environment.NewLine;
                 canAdd = false;
             }
             if (messageTextbox.Text.Length > 140 || String.IsNullOrEmpty(messageTextbox.Text)) 
             {
-                errorLbl.Content += "Message cant be more than 140 characters \n";
+                errorLbl.Content += "Message cant be more than 140 characters "+Environment.NewLine;
                 canAdd = false;
             }
             return canAdd;

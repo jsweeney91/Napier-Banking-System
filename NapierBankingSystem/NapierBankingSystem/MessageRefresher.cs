@@ -20,6 +20,12 @@ namespace NapierBankingSystem
             refreshMessages();
         }
 
+        public void addNewSeen()
+        {
+            instance.numberOfMessages++;
+            instance.notifyObservers();
+        }
+
         public static MessageRefresher getInstance()
         {
             if (instance == null)

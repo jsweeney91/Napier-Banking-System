@@ -41,7 +41,7 @@ namespace NapierBankingSystem
             string output = "";
             foreach(string key in MessageHolder.textspeak.Keys)
             {
-                output += key + "," + MessageHolder.textspeak[key]+ "\n";
+                output += key + "," + MessageHolder.textspeak[key]+ Environment.NewLine;
             }
             using (StreamWriter writer = new StreamWriter(fileName, false))
             {

@@ -31,14 +31,14 @@ namespace NapierBankingSystem
             {
                 SIR message = (SIR)m;
                 messageLabel.Content += "Sender: ";
-                messageLabel.Content += message.sender + "\n";
+                messageLabel.Content += message.sender + Environment.NewLine;
                 messageLabel.Content += "Date reported: ";
-                messageLabel.Content += message.dateReported.ToString("dd/MM/yy") + "\n";
+                messageLabel.Content += message.dateReported.ToString("dd/MM/yy") + Environment.NewLine;
                 messageLabel.Content += "Sort code: ";
-                messageLabel.Content += message.sortCode + "\n";
+                messageLabel.Content += message.sortCode +Environment.NewLine;
                 messageLabel.Content += "Nature of incident: ";
-                messageLabel.Content += message.natureOfIncident + "\n";
-                messageLabel.Content += "Message body: " + "\n";
+                messageLabel.Content += message.natureOfIncident +Environment.NewLine;
+                messageLabel.Content += "Message body: " + Environment.NewLine;
                 messageBodyTb.Text = message.messageBody;
                 
             }
@@ -46,18 +46,18 @@ namespace NapierBankingSystem
             {
                 Email message = (Email)m;
                 messageLabel.Content += "Sender: ";
-                messageLabel.Content += message.sender + "\n";
+                messageLabel.Content += message.sender + Environment.NewLine;
                 messageLabel.Content += "Subject: ";
-                messageLabel.Content += message.subject + "\n";
-                messageLabel.Content += "Message body: " + "\n";
+                messageLabel.Content += message.subject +Environment.NewLine;
+                messageLabel.Content += "Message body: " + Environment.NewLine;
                 messageBodyTb.Text = message.messageBody;
             }
             else if (m is SMS)
             {
                 SMS message = (SMS)m;
                 messageLabel.Content += "Sender: ";
-                messageLabel.Content += message.sender + "\n";
-                messageLabel.Content += "Message body: " + "\n";
+                messageLabel.Content += message.sender + Environment.NewLine;
+                messageLabel.Content += "Message body: " + Environment.NewLine;
                 messageBodyTb.Text = message.messageBody;
             }
         }
