@@ -17,19 +17,29 @@ namespace NapierBankingSystem
         public Dictionary<string, Message> readJSON()
         {
             Dictionary<string, Message> messages = new Dictionary<string, Message>();
-            MessageProcessor convert = new MessageProcessor();
-            if (this.fileName != null)
+            try
             {
-                string jsonText = System.IO.File.ReadAllText(this.fileName);
-                JObject jsonData = JObject.Parse(jsonText);
-                IList<JToken> results = jsonData["messages"].Children().ToList();
-                IList<MessageProcessor> output = new List<MessageProcessor>();
-                foreach(JToken result in results)
+               
+                MessageProcessor convert = new MessageProcessor();
+                if (this.fileName != null)
                 {
-                    Message msg = JsonConvert.DeserializeObject<MessageProcessor>(result.ToString()).loadMessage();
-                    msg.seen = true;
-                    messages.Add(msg.messageID, msg);
+                    string jsonText = System.IO.File.ReadAllText(this.fileName);
+                    JObject jsonData = JObject.Parse(jsonText);
+                    IList<JToken> results = jsonData["messages"].Children().ToList();
+                    IList<MessageProcessor> output = new List<MessageProcessor>();
+                    foreach (JToken result in results)
+                    {
+                        Message msg = JsonConvert.DeserializeObject<MessageProcessor>(result.ToString()).loadMessage();
+                        msg.seen = true;
+                        messages.Add(msg.messageID, msg);
+                    }
                 }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("JSON File not found please update or a new file will be created");
+                Window settings = new Settings();
+                settings.Show();
+
             }
             return messages;
         }
@@ -37,7 +47,7 @@ namespace NapierBankingSystem
         public void writeData()
         {
             List<MessageProcessor> output = new List<MessageProcessor>();
-            foreach(Message m in MessageHolder.messages.Values)
+            foreach (Message m in MessageHolder.messages.Values)
             {
                 output.Add(m.returnData());
             }
@@ -50,7 +60,8 @@ namespace NapierBankingSystem
                 sw.WriteLine(JsonConvert.SerializeObject(output, Formatting.Indented));
                 sw.WriteLine("}");
             }
-        }
+         }
+         
         
     }
 }

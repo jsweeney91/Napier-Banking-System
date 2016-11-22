@@ -13,6 +13,7 @@
         </Grid.ColumnDefinitions>
         <ComboBox x:Name="mailTypeSelection" HorizontalAlignment="Left" Margin="113,126,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged" Height="22">
             <ComboBoxItem Content="Email"/>
+            <ComboBoxItem Content="SIR"/>
             <ComboBoxItem Content="SMS"/>
             <ComboBoxItem Content="Tweet"/>
         </ComboBox>

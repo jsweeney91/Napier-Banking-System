@@ -32,8 +32,9 @@ namespace NapierBankingSystem
                 if (!m.seen)
                 {
                     string messageType = m.GetType().ToString();
-                    string[] splitval = messageType.Split('.');
-                    notificationListBox.Items.Add(createGrid(m.sender, "New " + splitval[splitval.Length - 1]));
+                    string[] splitval = messageType.Split('.');                    
+                    notificationListBox.Items.Add(createGrid(m.messageID, "New " + splitval[splitval.Length - 1]));
+                    m.seen = true;
                 }
             }
         }
@@ -74,6 +75,22 @@ namespace NapierBankingSystem
             myGrid.Children.Add(txt2);
 
             return myGrid;
+        }
+
+        private void notificationListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                String msg = "";
+                Grid message = (Grid)notificationListBox.SelectedValue;
+                msg += ((Label)message.Children[0]).Content;
+                Window messV = new ViewMessage(msg);
+                messV.Show();
+            }
+            catch (NullReferenceException ex)
+            {
+                //clears the selected item in the listbox
+            }
         }
     }
 }

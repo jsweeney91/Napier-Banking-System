@@ -60,6 +60,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CSVReader.cs" />
+    <Compile Include="GenericMessageReader.xaml.cs">
+      <DependentUpon>GenericMessageReader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MessageHolder.cs" />
     <Compile Include="MessageProcessor.cs" />
     <Compile Include="MessageRefresher.cs" />
@@ -83,10 +86,19 @@
     <Compile Include="SendTweet.xaml.cs">
       <DependentUpon>SendTweet.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SIR.cs" />
+    <Compile Include="SIRReport.xaml.cs">
+      <DependentUpon>SIRReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SMS.cs" />
     <Compile Include="Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextwordsEdit.xaml.cs">
+      <DependentUpon>TextwordsEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tweet.cs" />
     <Compile Include="ViewMentions.xaml.cs">
@@ -98,6 +110,10 @@
     <Compile Include="ViewTweet.xaml.cs">
       <DependentUpon>ViewTweet.xaml</DependentUpon>
     </Compile>
+    <Page Include="GenericMessageReader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,7 +152,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SIRReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TextwordsEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

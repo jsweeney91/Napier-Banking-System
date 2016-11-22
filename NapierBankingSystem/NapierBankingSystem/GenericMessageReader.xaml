@@ -1,0 +1,15 @@
+﻿<Page x:Class="NapierBankingSystem.GenericMessageReader"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NapierBankingSystem"
+      mc:Ignorable="d"
+      Title="GenericMessageReader" Width="328.027" Height="380.969">
+
+    <Grid HorizontalAlignment="Left" Width="328">
+        <Label x:Name="messageLabel" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="messageBodyTb" HorizontalAlignment="Left" Height="102" Margin="10,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298" IsEnabled="False"/>
+
+    </Grid>
+</Page>

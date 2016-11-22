@@ -1,0 +1,29 @@
+﻿<Window x:Class="NapierBankingSystem.TextwordsEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NapierBankingSystem"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="TextwordsEdit" Height="491.597" Width="300">
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="157" Stroke="Black" VerticalAlignment="Top" Width="331" Margin="-17,312,-22,-8"/>
+
+        <ListBox x:Name="abbreviationListbox" HorizontalAlignment="Left" Height="154" Margin="25,153,0,0" VerticalAlignment="Top" Width="117" SelectionChanged="abbreviationListbox_SelectionChanged"/>
+        <Label x:Name="valueLbl" Content="Value" HorizontalAlignment="Left" Margin="142,196,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="valueTextbox" HorizontalAlignment="Left" Height="55" Margin="147,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Abbreviations" HorizontalAlignment="Left" Margin="25,121,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="206,287,0,0" VerticalAlignment="Top" Width="61" Click="deleteButton_Click"/>
+        <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="147,287,0,0" VerticalAlignment="Top" Width="54" Click="saveButton_Click"/>
+        <TextBox x:Name="shorthandTb" HorizontalAlignment="Left" Height="23" Margin="159,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="121"/>
+        <TextBox x:Name="longtextwordTb" HorizontalAlignment="Left" Height="45" Margin="160,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label" Content="Shorthand" HorizontalAlignment="Left" Margin="72,338,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Value" HorizontalAlignment="Left" Margin="72,377,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="addTextword" Content="Add" HorizontalAlignment="Left" Margin="207,431,0,0" VerticalAlignment="Top" Width="75" Click="addTextword_Click" />
+        <Label x:Name="label2" Content="Add a new abbreviation" HorizontalAlignment="Left" Margin="-3,312,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Image x:Name="Logo_png" Margin="0,0,10,373" Source="Logo.png" Stretch="Fill"/>
+        <Label x:Name="headerLbl" Content="Textwords editor" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

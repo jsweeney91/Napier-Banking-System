@@ -44,6 +44,10 @@ namespace NapierBankingSystem
             {
                 pg = new SendTweet();
             }
+            else if(itm.Content.ToString() == "SIR")
+            {
+                pg = new SIRReport();
+            }
             contentFrame.Height = pg.Height;
             contentFrame.Content = pg;
         }

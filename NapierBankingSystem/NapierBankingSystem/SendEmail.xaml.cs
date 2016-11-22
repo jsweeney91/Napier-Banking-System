@@ -38,7 +38,7 @@ namespace NapierBankingSystem
                 }
                 currentID = "E" + currentID;
 
-                Email email = new Email(currentID + " " + emailTextbox.Text + " " + " "+subjectTextbox.Text+ " " +messageTextbox.Text);
+                Email email = new Email(currentID + " " + emailTextbox.Text + " " + subjectTextbox.Text+ " " +messageTextbox.Text);
                 MessageHolder.currentEmailID++;
                 MessageHolder.addMessage(currentID, email);
             }

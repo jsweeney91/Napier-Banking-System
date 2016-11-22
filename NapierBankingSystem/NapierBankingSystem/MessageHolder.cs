@@ -24,8 +24,8 @@ namespace NapierBankingSystem
 
         public static void readMessages()
         {
-            getTextspeak();            
-            js.fileName = @"C:\Users\admin\desktop\messages.json";
+            getTextspeak();
+            js.fileName = Properties.Settings.Default.JSONFile;
             messages = js.readJSON();
             setCurrentIDS();
             refresher.numberOfMessages = messages.Count;
@@ -34,9 +34,17 @@ namespace NapierBankingSystem
         public static void getTextspeak()
         {
             CSVReader r = new CSVReader();
-            string path = @"../../Resources/textwords.csv";
+            string path = Properties.Settings.Default.Textwords;
             r.fileName = path;
             textspeak = r.readFile();
+        }
+
+        public static void updateTextspeak()
+        {
+            CSVReader r = new CSVReader();
+            string path = Properties.Settings.Default.Textwords;
+            r.fileName = path;
+            r.overwriteFile();
         }
 
         public static void addMessage(string id, Message m)

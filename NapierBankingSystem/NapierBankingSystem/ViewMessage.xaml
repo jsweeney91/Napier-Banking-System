@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NapierBankingSystem"
         mc:Ignorable="d"
-        Title="ViewMessage" Height="351.903" Width="326.99">
-    <Grid>
-        <Image x:Name="Logo_png" Margin="10,0,10,235" Source="Logo.png" Stretch="Fill"/>
-        <Frame x:Name="frame" Content="" HorizontalAlignment="Left" Height="220" Margin="10,91,0,0" VerticalAlignment="Top" Width="299"/>
+        Title="ViewMessage" Height="479.757" Width="378.132">
+    <Grid Margin="0,0,72,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Logo_png" Margin="10,0,-54,330" Source="Logo.png" Stretch="Fill" Grid.ColumnSpan="2"/>
+        <Frame x:Name="frame" Content="" HorizontalAlignment="Left" Height="304" Margin="10,107,-67,0" VerticalAlignment="Top" Width="355" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

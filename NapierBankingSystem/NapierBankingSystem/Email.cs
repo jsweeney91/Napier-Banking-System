@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -20,6 +21,25 @@ namespace NapierBankingSystem
             int size = subject.Length + sender.Length;
             this.messageBody = messageIn.Substring(size,messageIn.Length-size);
             this.seen = false;
+            bool hasChanged = true;
+            while (hasChanged)
+            {
+                Regex regex = new Regex(@"\S+\.\S+");
+                Match match = regex.Match(this.messageBody);
+
+                if (match.Success)
+                {
+                    foreach (Match g in match.Groups)
+                    {
+                        this.messageBody = this.messageBody.Replace(g.ToString(), "<<Quarantined Link>>");
+                    }
+                }
+                else
+                {
+                    hasChanged = false;
+                }
+            }
+          
         }
 
         public override MessageProcessor returnData()

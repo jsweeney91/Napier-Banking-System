@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="Logo_png" Margin="10,0,15,225" Source="Logo.png" Stretch="UniformToFill" Grid.ColumnSpan="2"/>
         <Label x:Name="headerLbl" Content="Notifications" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" FontFamily="Titillium"/>
-        <ListBox x:Name="notificationListBox" HorizontalAlignment="Left" Height="143" Margin="25,131,0,0" VerticalAlignment="Top" Width="272"/>
+        <ListBox x:Name="notificationListBox" HorizontalAlignment="Left" Height="143" Margin="25,131,0,0" VerticalAlignment="Top" Width="272" SelectionChanged="notificationListBox_SelectionChanged"/>
 
     </Grid>
 </Window>

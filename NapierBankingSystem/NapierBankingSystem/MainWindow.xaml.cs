@@ -52,15 +52,17 @@ namespace NapierBankingSystem
         }
         
         private void notificationFeedbackLbl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
+        {            
             Window notificationPanel = new NotificationPanel();
+            MessageHolder.refresher.numberOfMessages = MessageHolder.messages.Count;
+            notificationFeedbackLbl.Content = (MessageHolder.refresher.numberOfMessages - MessageHolder.messages.Count).ToString();
             notificationPanel.Show();
         }
 
         private void button_Copy2_Click(object sender, RoutedEventArgs e)
         {
-            Window tet = new Test();
-            tet.Show();
+            Window set = new Settings();
+            set.Show();
         }
     }
 }

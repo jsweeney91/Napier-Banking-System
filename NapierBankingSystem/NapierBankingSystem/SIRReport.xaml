@@ -1,0 +1,34 @@
+﻿<Page x:Class="NapierBankingSystem.SIRReport"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NapierBankingSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Loaded="Page_Loaded"
+      Title="SIRReport">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="55*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="senderLabel" Content="Email" HorizontalAlignment="Left" Margin="17,15,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label x:Name="messageLabel" Content="Message" HorizontalAlignment="Left" Margin="17,29,0,0" VerticalAlignment="Top" Grid.Row="3"/>
+        <TextBox x:Name="emailTextbox" HorizontalAlignment="Left" Height="23" Margin="137,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Row="1"/>
+        <TextBox x:Name="messageTextbox" HorizontalAlignment="Left" Height="101" Margin="137,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.Row="3"/>
+        <Button x:Name="sendButton" Content="Send" HorizontalAlignment="Left" Margin="215,135,0,0" VerticalAlignment="Top" Width="75" Click="sendButton_Click" Grid.Row="3"/>
+        <Label x:Name="errorLbl" Content="" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Grid.Row="3" RenderTransformOrigin="0.167,2.013"/>
+        <Label x:Name="label" Content="Incident Type" HorizontalAlignment="Left" Margin="17,63,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Sort Code" HorizontalAlignment="Left" Margin="17,105,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="3"/>
+        <ComboBox x:Name="incidentTypeCombo" HorizontalAlignment="Left" Margin="137,67,0,0" Grid.Row="1" VerticalAlignment="Top" Width="153"/>
+        <TextBox x:Name="sortcode1Tb" HorizontalAlignment="Left" Height="21" Margin="137,1,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="29" Grid.RowSpan="2"/>
+        <TextBox x:Name="sortCode2tb" HorizontalAlignment="Left" Height="21" Margin="200,1,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="28" Grid.RowSpan="2"/>
+        <TextBox x:Name="sortCode3tb" HorizontalAlignment="Left" Height="21" Margin="259,1,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="28" Grid.RowSpan="2"/>
+        <Label x:Name="label2" Content="-" HorizontalAlignment="Left" Margin="176,105,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Label x:Name="label2_Copy" Content="-" HorizontalAlignment="Left" Margin="236,105,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2"/>
+    </Grid>
+</Page>

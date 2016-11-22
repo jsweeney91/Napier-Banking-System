@@ -10,15 +10,17 @@ namespace NapierBankingSystem
 {
     class SIR : Email
     {
-        DateTime reportDate;
-        string natureOfIncident;
-        string sortCode;
+        public DateTime dateReported { get; set; }
+        public string natureOfIncident { get; set; }
+        public string sortCode { get; set; }
+
         public SIR(string messageIn) : base(messageIn)
         {
-            DateTime.TryParse(this.subject.Substring(4, 8),out this.reportDate);
+            DateTime reportDate;
+            DateTime.TryParse(this.subject.Substring(4, 8),out reportDate);
+            this.dateReported = reportDate;
             Regex regex = new Regex(@"Sort Code: ([0-9-]+)");
             Match match = regex.Match(messageIn);
-            MessageBox.Show(messageIn);
             if (match.Success)
             {
                 this.sortCode = match.Groups[1].Value;
@@ -28,7 +30,7 @@ namespace NapierBankingSystem
             match = regex.Match(messageIn);
             if (match.Success)
             {
-                string nature = match.Groups[1].ToString();
+                string nature = match.Groups[1].ToString();             
                 foreach(string n in MessageHolder.incidentTypes)
                 {
                     if (nature.StartsWith(n))
@@ -37,7 +39,8 @@ namespace NapierBankingSystem
                         break;
                     }
                 }
-            }
+            }          
+
         }
     }
 }

@@ -130,15 +130,12 @@ namespace NapierBankingSystem
                 String msg = "";
                 Grid message = (Grid)messageListBox.SelectedValue;
                 msg += ((Label)message.Children[0]).Content;
-                if (msg.StartsWith("T"))
-                {
-                    Window messV = new ViewMessage(msg);
-                    messV.Show();
-                }
+                Window messV = new ViewMessage(msg);
+                messV.Show();
             }
             catch(NullReferenceException ex)
             {
-                MessageBox.Show(ex.ToString());
+                //clears the selected item in the listbox
             }              
 
         }
@@ -150,6 +147,7 @@ namespace NapierBankingSystem
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            messageListBox.SelectedItem = null;
             ListBoxItem itm = (ListBoxItem)comboBox.SelectedValue;
             MessageBox.Show(comboBox.SelectedValue.ToString());
             if(itm.Content.ToString()== "All messages")

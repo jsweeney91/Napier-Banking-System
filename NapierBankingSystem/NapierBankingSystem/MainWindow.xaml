@@ -14,8 +14,8 @@
         <Label x:Name="label_Copy" Content="Add message" HorizontalAlignment="Left" Margin="23,168,0,0" VerticalAlignment="Top"/>
         <Button x:Name="addMessagesButton" Content="ok" HorizontalAlignment="Left" Margin="147,203,0,0" VerticalAlignment="Top" Width="105" Height="26"/>
         <Label x:Name="label_Copy1" Content="Add Messages" HorizontalAlignment="Left" Margin="23,203,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button_Copy2" Content="ok" HorizontalAlignment="Left" Margin="147,242,0,0" VerticalAlignment="Top" Width="105" Height="26" Click="button_Copy2_Click"/>
-        <Label x:Name="label_Copy2" Content="Label" HorizontalAlignment="Left" Margin="23,242,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="settingsButton" Content="ok" HorizontalAlignment="Left" Margin="147,242,0,0" VerticalAlignment="Top" Width="105" Height="26" Click="button_Copy2_Click"/>
+        <Label x:Name="label_Copy2" Content="Settings" HorizontalAlignment="Left" Margin="23,242,0,0" VerticalAlignment="Top"/>
         <Image x:Name="Logo_png" Margin="0,0,-2,235" Source="Logo.png" Stretch="Fill"/>
         <Label x:Name="notificationLbl" Content="Notifications" HorizontalAlignment="Left" Margin="126,283,0,0" VerticalAlignment="Top"/>
         <Label x:Name="notificationFeedbackLbl" HorizontalAlignment="Left" Margin="219,283,0,0" VerticalAlignment="Top" Height="26" Width="37" MouseLeftButtonDown="notificationFeedbackLbl_MouseLeftButtonDown"/>

@@ -37,6 +37,10 @@ namespace NapierBankingSystem
             {
                 Page tweet = new ViewTweet((Tweet) MessageHolder.messages[m]);
                 frame.Content = tweet;
+            }else
+            {
+                Page gen = new GenericMessageReader(MessageHolder.messages[m]);
+                frame.Content = gen;
             }
         }
        

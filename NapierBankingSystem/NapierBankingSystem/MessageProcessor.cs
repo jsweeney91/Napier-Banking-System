@@ -57,6 +57,7 @@ namespace NapierBankingSystem
             Message msg=convertMessage(this.header + " " + this.body);
             return msg;
         }
+
         private string getEmailType(string messageIn)
         {
             string sender = messageIn.Substring(10, messageIn.Length - 10).Split(' ')[1];
