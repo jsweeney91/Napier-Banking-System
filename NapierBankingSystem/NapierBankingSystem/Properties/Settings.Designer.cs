@@ -46,5 +46,17 @@ namespace NapierBankingSystem.Properties {
                 this["Textwords"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("../../Resources/quarantined.txt")]
+        public string Quarantined {
+            get {
+                return ((string)(this["Quarantined"]));
+            }
+            set {
+                this["Quarantined"] = value;
+            }
+        }
     }
 }

@@ -58,8 +58,26 @@ namespace NapierBankingSystem
                 messageLabel.Content += "Sender: ";
                 messageLabel.Content += message.sender + Environment.NewLine;
                 messageLabel.Content += "Message body: " + Environment.NewLine;
-                messageBodyTb.Text = message.messageBody;
+
+                messageBodyTb.Text = getAbbreviations(message.messageBody);
             }
         }
-       }
+        public String getAbbreviations(string body)
+        {
+            string[] message = body.Split(' ');
+            List<int> toChange = new List<int>();
+            for (int i = 0; i < message.Length; i++)
+            {
+                if (MessageHolder.textspeak.ContainsKey(message[i]))
+                {
+                    toChange.Add(i);
+                }
+            }
+            foreach (int c in toChange)
+            {
+                message[c] = message[c] + "<<" + MessageHolder.textspeak[message[c]] + ">>";
+            }
+            return String.Join(" ", message);
+        }
+    }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,7 +28,7 @@ namespace NapierBankingSystem
 
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
-            if (validateInput())
+               if (validateInput())
             {
                 string currentID = (MessageHolder.currentEmailID + 1).ToString();
                 if (currentID.Length < 9)
@@ -44,12 +45,24 @@ namespace NapierBankingSystem
             }
 
         }
+
         private bool validateInput()
         {
-           // string pattern = "[a - z0 - 9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+            string pattern = @"[!#$%&'\\*\\+\\-\\/\\=\\?\\^\\_`\\{\\|\\}\\~\\+a-zA-Z0-9\\.]+@.*?[a-zA-Z0-9\\.]+";
+            Regex re = new Regex(pattern);
+            Match m = Regex.Match(emailTextbox.Text, pattern);
+            bool canAdd = true;
 
             errorLbl.Content = "";
-            bool canAdd = true;
+
+            if (!m.Success)
+            {
+                errorLbl.Content += "Invalid email address " + Environment.NewLine;
+                canAdd = false;
+            }
+
+           
+            
             if (subjectTextbox.Text.Length >= 20 ) 
             {
                 errorLbl.Content += "Subject must be less than 20 characters "+Environment.NewLine;

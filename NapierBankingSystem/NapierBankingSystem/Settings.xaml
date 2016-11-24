@@ -6,21 +6,26 @@
         xmlns:local="clr-namespace:NapierBankingSystem"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="Settings" Height="326.891" Width="343.697">
-    <Grid>
+        Title="Settings" Height="365.456" Width="343.697">
+    <Grid Margin="0,0,0,-2">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBox x:Name="jsonFileTextbox" HorizontalAlignment="Left" Height="23" Margin="115,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="jsonBrowse" Content="Browse" HorizontalAlignment="Left" Margin="248,146,0,0" VerticalAlignment="Top" Width="77" Height="23" Click="jsonBrowse_Click"/>
-        <TextBox x:Name="textwordsFileTextbox" HorizontalAlignment="Left" Height="23" Margin="115,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="textwordsBrowse" Content="Browse" HorizontalAlignment="Left" Margin="248,188,0,0" VerticalAlignment="Top" Width="77" Height="23" Click="textwordsBrowse_Click"/>
-        <Label x:Name="label" Content="JSON File:" HorizontalAlignment="Left" Margin="17,143,0,0" VerticalAlignment="Top" Height="26" Width="63"/>
-        <Label x:Name="label1" Content="Textwords file" HorizontalAlignment="Left" Margin="17,187,0,0" VerticalAlignment="Top" Height="26" Width="82"/>
-        <Image x:Name="Logo_png" Margin="0,0,7,192" Source="Logo.png" Stretch="Fill"/>
+        <TextBox x:Name="textwordsFileTextbox" HorizontalAlignment="Left" Height="23" Margin="115,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="textwordsBrowse" Content="Browse" HorizontalAlignment="Left" Margin="248,234,0,0" VerticalAlignment="Top" Width="77" Height="23" Click="textwordsBrowse_Click"/>
+        <Label x:Name="label" Content="JSON File:" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Height="26" Width="63"/>
+        <Label x:Name="label1" Content="Textwords file" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Height="26" Width="82"/>
+        <Image x:Name="Logo_png" Margin="0,0,7,235" Source="Logo.png" Stretch="Fill"/>
         <Label x:Name="settingsHeader" Content="Settings" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" FontSize="18" Height="34" Width="74"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="251,224,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Label x:Name="label2" Content="Edit textwords" HorizontalAlignment="Left" Margin="150,221,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="ok" HorizontalAlignment="Left" Margin="251,282,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Label x:Name="label2" Content="Edit textwords" HorizontalAlignment="Left" Margin="150,279,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Quarantined file" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="quarantinedTb" HorizontalAlignment="Left" Height="23" Margin="115,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="quarantinedBrowse" Content="Browse" HorizontalAlignment="Left" Margin="248,192,0,0" VerticalAlignment="Top" Width="77" Height="23" Click="quarantinedButton_Click"/>
+        <Button x:Name="button_Copy" Content="ok" HorizontalAlignment="Left" Margin="251,308,0,0" VerticalAlignment="Top" Width="75" Click="viewQuarantinedbutton_Click"/>
+        <Label x:Name="label2_Copy" Content="View quarantined URL's" HorizontalAlignment="Left" Margin="100,305,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

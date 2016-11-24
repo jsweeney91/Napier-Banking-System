@@ -1,0 +1,18 @@
+﻿<Window x:Class="NapierBankingSystem.QuarantinedViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NapierBankingSystem"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="QuarantinedViewer" Height="300" Width="300">
+    <Grid>
+        <Image x:Name="Logo_png" Margin="10,0,0,187" Source="Logo.png" Stretch="Fill"/>
+        <Label x:Name="label" Content="Quarantined Items" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="108" Margin="10,113,0,0" VerticalAlignment="Top" Width="272" SelectionChanged="listBox_SelectionChanged"/>
+        <Label x:Name="label1" Content="Number of occurences:" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="frequencyLabel" Content="" HorizontalAlignment="Left" Margin="148,226,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

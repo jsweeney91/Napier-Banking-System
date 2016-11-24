@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace NapierBankingSystem
 {
-    class SMS : Message
+    public class SMS : Message
     {
         public SMS(String messageIn)
         {

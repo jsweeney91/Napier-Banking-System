@@ -9,11 +9,17 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="253*"/>
-            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="tweetContentLabel" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="hashtagListbox" HorizontalAlignment="Left" Height="100" Margin="10,87,0,0" VerticalAlignment="Top" Width="280" Grid.ColumnSpan="2" SelectionChanged="hashtagListbox_SelectionChanged"/>
-        <Label x:Name="label1" Content="Mentions" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="tweetContentLabel" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="10"/>
+        <ListBox x:Name="hashtagListbox" HorizontalAlignment="Left" Height="67" Margin="10,140,0,0" VerticalAlignment="Top" Width="142" SelectionChanged="hashtagListbox_SelectionChanged"/>
+        <Label x:Name="label1" Content="Mentions" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Height="26" Width="60"/>
+        <ListBox x:Name="trendingListbox" HorizontalAlignment="Left" Height="67" Margin="158,140,0,0" VerticalAlignment="Top" Width="132" SelectionChanged="trendingListBox_SelectionChanged"/>
+        <Label x:Name="label1_Copy" Content="Trending" HorizontalAlignment="Left" Margin="158,114,0,0" VerticalAlignment="Top" Height="26" Width="60"/>
+        <Label x:Name="label" Content="Sender:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Message body:" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="senderLbl" Content="" HorizontalAlignment="Left" Margin="114,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="messageBodyTb" HorizontalAlignment="Left" Height="52" Margin="10,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280"/>
     </Grid>
 </Page>

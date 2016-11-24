@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace NapierBankingSystem
 {
-    class Email : Message
+    public class Email : Message
     {
         public string subject { get; set; }
 
@@ -17,6 +17,7 @@ namespace NapierBankingSystem
             this.messageID = messageIn.Substring(0, 10);
             messageIn = messageIn.Substring(11);
             this.sender = messageIn.Split(' ')[0];
+           // MessageBox.Show(sender);
             this.subject = messageIn.Substring(sender.Length+1,20);
             int size = subject.Length + sender.Length;
             this.messageBody = messageIn.Substring(messageIn.IndexOf(subject)+subject.Length);
@@ -32,6 +33,13 @@ namespace NapierBankingSystem
                 {
                     foreach (Match g in match.Groups)
                     {
+                        if (MessageHolder.quarantined.ContainsKey(g.ToString())){
+                            MessageHolder.quarantined[g.ToString()] = (Convert.ToInt32(MessageHolder.quarantined[g.ToString()]) + 1).ToString();
+                        }else
+                        {
+                            MessageHolder.quarantined.Add(g.ToString(), "1");
+                        }
+                        MessageHolder.updateQuarantinedItems();
                         this.messageBody = this.messageBody.Replace(g.ToString(), "<<Quarantined Link>>");
                     }
                 }

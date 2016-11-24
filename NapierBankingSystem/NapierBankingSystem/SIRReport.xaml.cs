@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,8 +53,19 @@ namespace NapierBankingSystem
 
         private bool validateInput()
         {
-            errorLbl.Content = "";
+            string pattern = @"[!#$%&'\\*\\+\\-\\/\\=\\?\\^\\_`\\{\\|\\}\\~\\+a-zA-Z0-9\\.]+@.*?[a-zA-Z0-9\\.]+";
+            Regex re = new Regex(pattern);
+            Match m = Regex.Match(emailTextbox.Text, pattern);
             bool canAdd = true;
+
+            errorLbl.Content = "";
+
+            if (!m.Success)
+            {
+                errorLbl.Content += "Invalid email address " + Environment.NewLine;
+                canAdd = false;
+            }
+
             int sc1,sc2,sc3;
             
             bool ty = int.TryParse(sortcode1Tb.Text, out sc1);

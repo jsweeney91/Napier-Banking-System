@@ -36,14 +36,7 @@ namespace NapierBankingSystem
                     string messageType = m.GetType().ToString();
                     string[] splitval = messageType.Split('.');
                     MessageProcessor proc = m.returnData();
-                    string body = proc.body;
-                    foreach (string k in MessageHolder.textspeak.Keys)
-                    {
-                        if (body.Contains(k))
-                        {
-                            body = body.Replace(k, k + "<" + MessageHolder.textspeak[k] + ">");
-                        }
-                    }
+                    string body = proc.body;                 
                     messageListBox.Items.Add(createGrid(proc.header, body, splitval[splitval.Length - 1]));
                 }
             }
@@ -58,15 +51,7 @@ namespace NapierBankingSystem
                     string body = proc.body;
 
                     if (splitval[splitval.Length - 1] == typeIn)
-                    {
-                        foreach (string k in MessageHolder.textspeak.Keys)
-                        {
-                            if (body.Contains(k))
-                            {
-                                body = body.Replace(k, k + "<" + MessageHolder.textspeak[k] + ">");
-                            }
-                        }
-
+                    {      
                         messageListBox.Items.Add(createGrid(proc.header, body, splitval[splitval.Length - 1]));
                     }
                 }

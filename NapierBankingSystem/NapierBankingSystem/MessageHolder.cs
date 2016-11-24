@@ -20,11 +20,14 @@ namespace NapierBankingSystem
         public static string[] incidentTypes = { "Theft","Staff Attack","ATM Theft","Raid","Customer Attack","Staff Abuse","Bomb Threat","Terrorism","Suspicious Incident","Intelligence","Cash Loss"};
         public static MessageRefresher refresher = MessageRefresher.getInstance();
         public static Dictionary<string, string> textspeak = new Dictionary<string, string>();
+        public static Dictionary<string, string> quarantined = new Dictionary<string, string>();
         public static Dictionary<string, List<string>> mentions = new Dictionary<string, List<String>>();
+        public static CSVReader r = new CSVReader();
 
         public static void readMessages()
         {
             getTextspeak();
+            getQuarantinedItems();
             js.fileName = Properties.Settings.Default.JSONFile;
             messages = js.readJSON();
             setCurrentIDS();
@@ -33,18 +36,26 @@ namespace NapierBankingSystem
 
         public static void getTextspeak()
         {
-            CSVReader r = new CSVReader();
             string path = Properties.Settings.Default.Textwords;
-            r.fileName = path;
-            textspeak = r.readFile();
+            textspeak = r.readFile(path);
         }
 
         public static void updateTextspeak()
         {
-            CSVReader r = new CSVReader();
             string path = Properties.Settings.Default.Textwords;
-            r.fileName = path;
-            r.overwriteFile();
+            r.overwriteFile(path,textspeak);
+        }
+
+        public static void getQuarantinedItems()
+        {
+            string path = Properties.Settings.Default.Quarantined;
+            quarantined = r.readFile(path);
+        }
+
+        public static void updateQuarantinedItems()
+        {
+            string path = Properties.Settings.Default.Quarantined;
+            r.overwriteFile(path,quarantined);
         }
 
         public static void addMessage(string id, Message m)

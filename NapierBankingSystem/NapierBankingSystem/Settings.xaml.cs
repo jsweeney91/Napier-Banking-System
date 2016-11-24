@@ -20,6 +20,8 @@ namespace NapierBankingSystem
     /// </summary>
     public partial class Settings : Window
     {
+        public static bool isOpen = false;
+
         public Settings()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace NapierBankingSystem
         {
             this.jsonFileTextbox.Text = Properties.Settings.Default.JSONFile;
             this.textwordsFileTextbox.Text = Properties.Settings.Default.Textwords;
+            this.quarantinedTb.Text = Properties.Settings.Default.Quarantined;
         }
 
         private void jsonBrowse_Click(object sender, RoutedEventArgs e)
@@ -41,6 +44,7 @@ namespace NapierBankingSystem
                 jsonFileTextbox.Text = path;
                 Properties.Settings.Default.JSONFile = path;
                 Properties.Settings.Default.Save();
+                MessageHolder.readMessages();
             }
         }
 
@@ -62,6 +66,26 @@ namespace NapierBankingSystem
         {
             Window tw = new TextwordsEdit();
             tw.Show();
+        }
+
+        private void quarantinedButton_Click(object sender, RoutedEventArgs e)
+        {
+            string path;
+            Microsoft.Win32.OpenFileDialog file = new OpenFileDialog();
+            if (file.ShowDialog().HasValue)
+            {
+                path = file.FileName;
+                quarantinedTb.Text = path;
+                Properties.Settings.Default.Quarantined = path;
+                MessageHolder.getQuarantinedItems();
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void viewQuarantinedbutton_Click(object sender, RoutedEventArgs e)
+        {
+            Window win = new QuarantinedViewer();
+            win.Show();
         }
     }
 }

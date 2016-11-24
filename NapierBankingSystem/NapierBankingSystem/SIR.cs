@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace NapierBankingSystem
 {
-    class SIR : Email
+    public class SIR : Email
     {
         public DateTime dateReported { get; set; }
         public string natureOfIncident { get; set; }

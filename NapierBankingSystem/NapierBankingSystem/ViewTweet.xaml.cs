@@ -27,12 +27,30 @@ namespace NapierBankingSystem
         }
         public void assignData(Tweet t)
         {
-            string labeltext = "";
-            labeltext += "Sender: "+ t.sender + Environment.NewLine;
-            labeltext += "Message text: "+ t.messageBody+ Environment.NewLine;
-            tweetContentLabel.Content = labeltext;
+            senderLbl.Content = t.sender;
+            messageBodyTb.Text = getAbbreviations(t.messageBody);
             getHashTags(t.messageID);
+            getTrending();
         }
+
+        public String getAbbreviations(string body)
+        {
+            string[] message = body.Split(' ');
+            List<int> toChange = new List<int>();
+            for (int i = 0; i < message.Length;i++)
+            {
+                if (MessageHolder.textspeak.ContainsKey(message[i]))
+                {
+                    toChange.Add(i);
+                }
+            }
+            foreach(int c in toChange)
+            {
+                message[c] = message[c] + "<<"+MessageHolder.textspeak[message[c]]+">>";
+            }
+            return String.Join(" ", message);
+        }
+
         public void getHashTags(string userId)
         {
             foreach(string h in MessageHolder.mentions.Keys)
@@ -43,10 +61,26 @@ namespace NapierBankingSystem
                 }
             }
         }
+        private void getTrending()
+        {
+            var values = from pair in MessageHolder.mentions orderby pair.Value.Count descending select pair.Key.ToString();
+            foreach(string v in values)
+            {
+                if (v.StartsWith("#"))
+                {
+                    trendingListbox.Items.Add(v);
+                }
+            }
+        }
 
         private void hashtagListbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Page mentions = new ViewMentions(hashtagListbox.SelectedValue.ToString());           
+        }
+
+        private void trendingListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Page mentions = new ViewMentions(trendingListbox.SelectedValue.ToString());
         }
     }
 }
