@@ -10,6 +10,8 @@ namespace NapierBankingSystem
 {
     public class CSVReader
     {
+        public bool isTesting { get; set; } = false;
+
         public Dictionary<string,string> readFile(string fileName)
         {
             Dictionary<string, string> output = new Dictionary<string, string>();
@@ -27,14 +29,19 @@ namespace NapierBankingSystem
                         output.Add(vals[0], line.Substring(vals[0].Length+1));
                     }
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                if (!Settings.isOpen) { 
+                if (!Settings.isOpen)
+                { 
                    Window settings = new Settings();
                    settings.Show();
                    Settings.isOpen = true;
-               }              
-                MessageBox.Show("CSV File not found, please update");
+                }
+                if (!isTesting)
+                {
+                    MessageBox.Show("CSV File not found, please update");
+                }
                 
             }
             return output;

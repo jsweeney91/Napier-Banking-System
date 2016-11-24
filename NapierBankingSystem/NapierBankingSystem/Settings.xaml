@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:NapierBankingSystem"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="Settings" Height="365.456" Width="343.697">
-    <Grid Margin="0,0,0,-2">
+        Title="Settings" Height="379.828" Width="343.697">
+    <Grid Margin="0,0,0,-21">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -17,7 +17,7 @@
         <Button x:Name="textwordsBrowse" Content="Browse" HorizontalAlignment="Left" Margin="248,234,0,0" VerticalAlignment="Top" Width="77" Height="23" Click="textwordsBrowse_Click"/>
         <Label x:Name="label" Content="JSON File:" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Height="26" Width="63"/>
         <Label x:Name="label1" Content="Textwords file" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Height="26" Width="82"/>
-        <Image x:Name="Logo_png" Margin="0,0,7,235" Source="Logo.png" Stretch="Fill"/>
+        <Image x:Name="Logo_png" Margin="0,0,7,260" Source="Logo.png" Stretch="Fill"/>
         <Label x:Name="settingsHeader" Content="Settings" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" FontSize="18" Height="34" Width="74"/>
         <Button x:Name="button" Content="ok" HorizontalAlignment="Left" Margin="251,282,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Label x:Name="label2" Content="Edit textwords" HorizontalAlignment="Left" Margin="150,279,0,0" VerticalAlignment="Top"/>

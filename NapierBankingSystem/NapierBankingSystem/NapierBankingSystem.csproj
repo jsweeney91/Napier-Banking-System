@@ -76,7 +76,6 @@
     <Compile Include="NotificationPanel.xaml.cs">
       <DependentUpon>NotificationPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Observable.cs" />
     <Compile Include="Observer.cs" />
     <Compile Include="PlaintextInput.xaml.cs">
       <DependentUpon>PlaintextInput.xaml</DependentUpon>

@@ -36,7 +36,7 @@ namespace NapierBankingSystem
                 }
             }catch(Exception ex)
             {
-                MessageBox.Show("JSON File not found please update or a new file will be created");
+                MessageBox.Show(ex.ToString());
                 if (!Settings.isOpen)
                 {
                     Window settings = new Settings();

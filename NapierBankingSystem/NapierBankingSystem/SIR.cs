@@ -25,6 +25,11 @@ namespace NapierBankingSystem
             {
                 this.sortCode = match.Groups[1].Value;
             }
+            else
+            {
+                throw new ArgumentException("no sort code found");
+            }
+
 
             regex = new Regex(@"Nature of Incident: (.+)");
             match = regex.Match(messageIn);
@@ -39,7 +44,12 @@ namespace NapierBankingSystem
                         break;
                     }
                 }
-            }          
+            }
+            else
+            {
+                throw new ArgumentException("no matching incident found");
+            }
+
 
         }
     }

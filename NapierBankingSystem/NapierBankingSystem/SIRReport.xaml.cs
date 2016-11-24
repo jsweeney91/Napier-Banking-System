@@ -41,7 +41,7 @@ namespace NapierBankingSystem
 
                 ComboBoxItem cmb = (ComboBoxItem)incidentTypeCombo.SelectedItem;
                 string subject = "SIR "+ System.DateTime.Now.ToString("dd/MM/yy");                   
-                string messageBody = "Sort Code: " + sortcode1Tb.Text + "-" + sortCode2tb.Text + "-" + sortCode3tb.Text + " "+Environment.NewLine+"Nature of Incident: " + cmb.Content + Environment.NewLine +messageTextbox.Text;              
+                string messageBody = "Sort Code: " + sortcode1Tb.Text + "-" + sortCode2tb.Text + "-" + sortCode3tb.Text + " "+"Nature of Incident: " + cmb.Content+" "+messageTextbox.Text;              
                 
                 subject += String.Concat(Enumerable.Repeat(" ", 20 - subject.Length));
 

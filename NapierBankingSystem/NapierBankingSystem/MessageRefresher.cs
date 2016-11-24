@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace NapierBankingSystem
 {
-    public class MessageRefresher : Observable
+    public class MessageRefresher
     {
         public List<Observer> observers{ get; set; }
         public int numberOfMessages { get; set; }
