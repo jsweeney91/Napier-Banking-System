@@ -11,7 +11,7 @@ namespace NapierBankingSystem
         public string messageID { get; set; }
         public string messageBody { get; set; }
         public string sender { get; set; }
-        public bool seen { get; set; }
+        public bool seen { get; set; } //used for notification panel
 
         public abstract MessageProcessor returnData();
 

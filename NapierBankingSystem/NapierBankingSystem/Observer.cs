@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NapierBankingSystem
 {
+    //used with the message refresher for new message notifications
     public interface Observer
     {
         void receiveNotification();

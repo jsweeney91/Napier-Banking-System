@@ -10,10 +10,12 @@ using System.Windows;
 
 namespace NapierBankingSystem
 {
-    class JSON
+    public class JSON
     {
-        public string fileName { get; set; }
+        //sets the file to the filename specified inside the application properties
+        public string fileName { get; set; } = Properties.Settings.Default.JSONFile;
 
+        /// used to read in the JSON file and deserialize the objects found inside it     
         public Dictionary<string, Message> readJSON()
         {
             Dictionary<string, Message> messages = new Dictionary<string, Message>();
@@ -37,6 +39,8 @@ namespace NapierBankingSystem
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+
+                //prompt the user to change the file path as the one being used is invalid
                 if (!Settings.isOpen)
                 {
                     Window settings = new Settings();
@@ -48,6 +52,7 @@ namespace NapierBankingSystem
             return messages;
         }
 
+        /// users to overwrite the file if new messages are added, data source is the MessageHolder messages 
         public void writeData()
         {
             List<MessageProcessor> output = new List<MessageProcessor>();

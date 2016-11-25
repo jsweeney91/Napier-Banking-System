@@ -23,11 +23,18 @@ namespace NapierBankingSystem
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// load initial values to listboxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             refreshListbox();
         }
+        /// <summary>
+        /// populates the listbox values 
+        /// </summary>
         private void refreshListbox()
         {
             valueTextbox.Text = "";
@@ -39,7 +46,11 @@ namespace NapierBankingSystem
             }
         }
 
-
+        /// <summary>
+        /// shows the definition of a selected item inside the valueTextbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void abbreviationListbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -52,20 +63,30 @@ namespace NapierBankingSystem
             }
         }
 
+        /// <summary>
+        /// updates the CSV file if a value is being changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Change "+ MessageHolder.textspeak[abbreviationListbox.SelectedValue.ToString()] +" to "+valueTextbox.Text, "Change value?", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 MessageHolder.textspeak[abbreviationListbox.SelectedValue.ToString()] = valueTextbox.Text;
-                MessageHolder.updateTextspeak();
+                MessageHolder.updateTextspeak();//update the values being held by the applicaiton
             }
             else
             {
-                valueTextbox.Text = MessageHolder.textspeak[abbreviationListbox.SelectedValue.ToString()];
+                valueTextbox.Text = MessageHolder.textspeak[abbreviationListbox.SelectedValue.ToString()]; //reset textbox value
             }
         }
 
+        /// <summary>
+        /// used to remove values from dictionary and csv file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
              MessageBoxResult result = MessageBox.Show("Delete "+abbreviationListbox.SelectedValue.ToString()+"? ", "Delete value?", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -77,6 +98,11 @@ namespace NapierBankingSystem
             }            
         }
 
+        /// <summary>
+        /// adds new textwords to the csv file and dictionary
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addTextword_Click(object sender, RoutedEventArgs e)
         {
             bool shouldRefresh = false;

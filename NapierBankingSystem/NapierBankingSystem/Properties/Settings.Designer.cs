@@ -25,7 +25,7 @@ namespace NapierBankingSystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\admin\\desktop\\messages.json")]
+        [global::System.Configuration.DefaultSettingValueAttribute("../../Resources/messages.json")]
         public string JSONFile {
             get {
                 return ((string)(this["JSONFile"]));
@@ -49,7 +49,7 @@ namespace NapierBankingSystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("../../Resources/quarantined.txt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("../../Resources/quarantined.csv")]
         public string Quarantined {
             get {
                 return ((string)(this["Quarantined"]));

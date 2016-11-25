@@ -25,6 +25,8 @@ namespace NapierBankingSystem
             InitializeComponent();
         }
 
+        //used to add new SMS messages
+        //NOTE: this will use the same string format for receiving messages as decribed in initial specification
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
             if (validateInput())
@@ -43,6 +45,9 @@ namespace NapierBankingSystem
                 MessageHolder.addMessage(currentID, sms);
             }
         }
+
+        //validates the textboxes to ensure format meets the specification described in the
+        //initial documentation
         public bool validateInput()
         {
             bool canAdd = true;

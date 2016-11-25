@@ -10,9 +10,9 @@ namespace NapierBankingSystem
 {
     public class MessageRefresher
     {
-        public List<Observer> observers{ get; set; }
-        public int numberOfMessages { get; set; }
-        private static MessageRefresher instance;
+        public List<Observer> observers{ get; set; } //windows to notify of changes
+        public int numberOfMessages { get; set; } //number of read messages, subtract from total messages to find notification number
+        private static MessageRefresher instance; //singleton static variable to make sure only one instance can occur
 
         private MessageRefresher()
         {
@@ -20,12 +20,14 @@ namespace NapierBankingSystem
             refreshMessages();
         }
 
+        /// increments the number of seen messages and notifies any windows registered
         public void addNewSeen()
         {
             instance.numberOfMessages++;
             instance.notifyObservers();
         }
 
+        //singleton pattern 
         public static MessageRefresher getInstance()
         {
             if (instance == null)
@@ -35,6 +37,7 @@ namespace NapierBankingSystem
             return instance;
         }
 
+        /// timer used to check for new messages, checks every 5 seconds
         private void refreshMessages()
         {
             Timer aTimer = new System.Timers.Timer();
@@ -43,11 +46,14 @@ namespace NapierBankingSystem
             aTimer.Enabled = true;
         }
 
+        //register a class requiring notification of updates to messages
+        /// <param name="win">observer to add to list</param>
         public void addObserver(Observer win)
         {
             observers.Add(win);
         }
 
+        /// notify class that a change has occurred 
         private void notifyObservers()
         {
             foreach (Observer o in observers)
@@ -56,6 +62,7 @@ namespace NapierBankingSystem
             }
         }
 
+        //check if seen messages is less than total number of messages, if so notify observers
         private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
             if (MessageHolder.messages.Count > numberOfMessages)

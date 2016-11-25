@@ -26,6 +26,11 @@ namespace NapierBankingSystem
             InitializeComponent();
         }
 
+        /// <summary>
+        /// validates and adds new SIR emails
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
             if (validateInput())
@@ -51,6 +56,10 @@ namespace NapierBankingSystem
             }
         }
 
+        /// <summary>
+        /// ensures that input meets standards described in initial docs
+        /// </summary>
+        /// <returns></returns>
         private bool validateInput()
         {
             string pattern = @"[!#$%&'\\*\\+\\-\\/\\=\\?\\^\\_`\\{\\|\\}\\~\\+a-zA-Z0-9\\.]+@.*?[a-zA-Z0-9\\.]+";
@@ -103,6 +112,11 @@ namespace NapierBankingSystem
 
         }
 
+        /// <summary>
+        /// populates incident combo box on page load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             foreach(string it in MessageHolder.incidentTypes)

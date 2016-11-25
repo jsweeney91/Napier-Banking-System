@@ -26,14 +26,16 @@ namespace NapierBankingSystem
             InitializeComponent();
         }
 
+        //used to add new emails
+        //NOTE: this will use the same string format for receiving messages as decribed in initial specification
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
-               if (validateInput())
+            if (validateInput())
             {
-                string currentID = (MessageHolder.currentEmailID + 1).ToString();
+                string currentID = (MessageHolder.currentEmailID + 1).ToString(); //unique id for email
                 if (currentID.Length < 9)
                 {
-                    string zeros = String.Concat(Enumerable.Repeat("0", 9 - currentID.Length));
+                    string zeros = String.Concat(Enumerable.Repeat("0", 9 - currentID.Length)); //padding for subject as spec states all subjects are to be 20 characters
                     currentID = zeros + currentID;
 
                 }
@@ -45,7 +47,8 @@ namespace NapierBankingSystem
             }
 
         }
-
+        
+        //validates input according to initial specification before sending
         private bool validateInput()
         {
             string pattern = @"[!#$%&'\\*\\+\\-\\/\\=\\?\\^\\_`\\{\\|\\}\\~\\+a-zA-Z0-9\\.]+@.*?[a-zA-Z0-9\\.]+";
@@ -60,8 +63,6 @@ namespace NapierBankingSystem
                 errorLbl.Content += "Invalid email address " + Environment.NewLine;
                 canAdd = false;
             }
-
-           
             
             if (subjectTextbox.Text.Length >= 20 ) 
             {

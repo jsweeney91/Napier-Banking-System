@@ -32,6 +32,7 @@ namespace NapierBankingSystem
             }
         }
 
+        //shows the frequency of selected URL inside a label
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             frequencyLabel.Content = MessageHolder.quarantined[listBox.SelectedValue.ToString()];

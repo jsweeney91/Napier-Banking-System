@@ -34,6 +34,11 @@ namespace NapierBankingSystem
             this.quarantinedTb.Text = Properties.Settings.Default.Quarantined;
         }
 
+        /// <summary>
+        /// used for changing the JSON path
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void jsonBrowse_Click(object sender, RoutedEventArgs e)
         {
             string path;
@@ -47,7 +52,11 @@ namespace NapierBankingSystem
                 MessageHolder.readMessages();
             }
         }
-
+        /// <summary>
+        /// used for changing textwords file path
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textwordsBrowse_Click(object sender, RoutedEventArgs e)
         {
             string path;
@@ -62,12 +71,21 @@ namespace NapierBankingSystem
             }
         }
 
+        /// <summary>
+        /// used for showing textwords editor window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Window tw = new TextwordsEdit();
             tw.Show();
         }
-
+        /// <summary>
+        /// used for changing quarantined file path
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void quarantinedButton_Click(object sender, RoutedEventArgs e)
         {
             string path;
@@ -81,7 +99,11 @@ namespace NapierBankingSystem
                 Properties.Settings.Default.Save();
             }
         }
-
+        /// <summary>
+        /// shows the quarantined items in new window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void viewQuarantinedbutton_Click(object sender, RoutedEventArgs e)
         {
             Window win = new QuarantinedViewer();

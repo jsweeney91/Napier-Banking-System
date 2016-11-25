@@ -20,13 +20,14 @@ namespace NapierBankingSystem
     /// </summary>
     public partial class MainWindow : Window,Observer
     {
-        JSON js = new JSON();
-        Dictionary<string, Message> messages;
-
         public MainWindow()
         {
             InitializeComponent();
+
+            //populate the messageholder 
             MessageHolder.readMessages();
+
+            //register for notifications of new messages received
             MessageHolder.refresher.addObserver(this);
             
         }
@@ -36,10 +37,12 @@ namespace NapierBankingSystem
             Window win = new MessageViewer();
             win.Show();
         }
+
+        //this is used to update the notification pane when messages are received 
         public void receiveNotification()
         {
             this.Dispatcher.Invoke(() =>
-            {
+            {          
                 this.notificationFeedbackLbl.Content = (MessageHolder.messages.Count - MessageHolder.refresher.numberOfMessages).ToString();
             });
             
@@ -51,11 +54,12 @@ namespace NapierBankingSystem
             win.Show();
         }
         
+        //Opens the notification window when notification pane is clicked
         private void notificationFeedbackLbl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {            
             Window notificationPanel = new NotificationPanel();
-            MessageHolder.refresher.numberOfMessages = MessageHolder.messages.Count;
-            notificationFeedbackLbl.Content = (MessageHolder.refresher.numberOfMessages - MessageHolder.messages.Count).ToString();
+            MessageHolder.refresher.numberOfMessages = MessageHolder.messages.Count; //reset the number of notification as the user will see them
+            notificationFeedbackLbl.Content = (MessageHolder.refresher.numberOfMessages - MessageHolder.messages.Count).ToString(); //update label
             notificationPanel.Show();
         }
 

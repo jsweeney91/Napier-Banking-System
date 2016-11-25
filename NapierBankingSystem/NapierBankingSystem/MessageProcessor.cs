@@ -17,12 +17,17 @@ namespace NapierBankingSystem
 
         }
 
+        /// MessageProcessor is used to write out to the JSON file so the varables must match the JSON format
+        /// <param name="h">message header</param>
+        /// <param name="b">message body</param>
         public MessageProcessor(string h, string b)
         {
             this.header = h;
             this.body = b;
         }
 
+        /// selects the correct message type for the message being passed in(in text format)
+        /// <param name="messageIn">message string</param>
         public Message convertMessage(String messageIn)
         {
             if (messageIn.StartsWith("E"))
@@ -51,13 +56,16 @@ namespace NapierBankingSystem
             }            
         }
 
-
+        /// returns the message after convertion
         public Message loadMessage()
         {
             Message msg=convertMessage(this.header + " " + this.body);
             return msg;
         }
 
+        /// Used to seperate SIR emails and standard emails
+        /// works by finding the subject and checking for "SIR"
+        /// <param name="messageIn">message string</param>
         private string getEmailType(string messageIn)
         {
             string messageID = messageIn.Substring(0, 10);

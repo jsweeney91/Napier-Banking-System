@@ -24,6 +24,8 @@ namespace NapierBankingSystem
             InitializeComponent();
             loadNotifications();
         }
+
+        /// loads the notifications based on message "seen" property
         private void loadNotifications()
         {
             notificationListBox.Items.Clear();
@@ -34,7 +36,7 @@ namespace NapierBankingSystem
                     string messageType = m.GetType().ToString();
                     string[] splitval = messageType.Split('.');                    
                     notificationListBox.Items.Add(createGrid(m.messageID, "New " + splitval[splitval.Length - 1]));
-                    m.seen = true;
+                    m.seen = true; //message has been seen if user is viewing notification pane
                 }
             }
         }
@@ -77,6 +79,7 @@ namespace NapierBankingSystem
             return myGrid;
         }
 
+        //shows the selected message in a new window
         private void notificationListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try

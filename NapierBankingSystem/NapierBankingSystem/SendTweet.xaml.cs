@@ -25,6 +25,8 @@ namespace NapierBankingSystem
             InitializeComponent();
         }
 
+        //used to add new Tweet messages
+        //NOTE: this will use the same string format for receiving messages as decribed in initial specification
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
             if (validateInput())
@@ -45,11 +47,13 @@ namespace NapierBankingSystem
             }
         }
 
+        //validates the textboxes to ensure format meets the specification described in the
+        //initial documentation
         private bool validateInput()
         {
             errorLbl.Content = "";
             bool canAdd = true;
-            if (twitterHandleTextbox.Text.StartsWith("@"))
+            if (twitterHandleTextbox.Text.StartsWith("@")) //all twitter handles start with "@"
             {
                 if (twitterHandleTextbox.Text.Length > 15 || String.IsNullOrEmpty(twitterHandleTextbox.Text))
                 {

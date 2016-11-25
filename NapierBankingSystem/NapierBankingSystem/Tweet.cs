@@ -10,8 +10,11 @@ namespace NapierBankingSystem
 {
     public class Tweet : Message
     {
-        public string tweetText { get; set; }
-
+   
+        /// <summary>
+        /// validates and creates a new tweet message
+        /// </summary>
+        /// <param name="messageIn"></param>
         public Tweet(string messageIn)
         {
             Regex re = new Regex(@"(T\d{9}) (@.*?) (.+)");
@@ -33,22 +36,23 @@ namespace NapierBankingSystem
             {
                 throw new ArgumentException("Invalid Tweet data");
             }
+            //find all the hashtags in the message body
             string[] hashtags = this.messageBody.Split(' ');
             foreach(string h in hashtags)
             {
                 if (h.StartsWith("#") || h.StartsWith("@"))
                 {
                    string tag = h;
-                   if (MessageHolder.mentions.ContainsKey(tag))
+                   if (MessageHolder.mentions.ContainsKey(tag)) //check if its already used
                    {
                         if (!MessageHolder.mentions[tag].Contains(this.messageID))
                         {
-                            MessageHolder.mentions[tag].Add(this.messageID);
+                            MessageHolder.mentions[tag].Add(this.messageID); //add this meessage id to the list if its been used 
                         }
                    }
                     else
                     {
-                        MessageHolder.mentions.Add(tag, new List<String>());
+                        MessageHolder.mentions.Add(tag, new List<String>()); //create new dictionary item for hashtag if not found
                         MessageHolder.mentions[tag].Add(this.messageID);
                     }                   
                 }

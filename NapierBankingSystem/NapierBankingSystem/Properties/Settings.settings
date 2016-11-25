@@ -3,13 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="JSONFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\admin\desktop\messages.json</Value>
+      <Value Profile="(Default)">../../Resources/messages.json</Value>
     </Setting>
     <Setting Name="Textwords" Type="System.String" Scope="User">
       <Value Profile="(Default)">../../Resources/textwords.csv</Value>
     </Setting>
     <Setting Name="Quarantined" Type="System.String" Scope="User">
-      <Value Profile="(Default)">../../Resources/quarantined.txt</Value>
+      <Value Profile="(Default)">../../Resources/quarantined.csv</Value>
     </Setting>
   </Settings>
 </SettingsFile>

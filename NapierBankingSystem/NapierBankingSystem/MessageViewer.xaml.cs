@@ -26,11 +26,13 @@ namespace NapierBankingSystem
             InitializeComponent();
         }
 
+        /// used to refresh listboxes
+        /// <param name="typeIn">type of messages to show</param>
         private void refreshData(string typeIn)
         {
-            if (typeIn == "all")
+            if (typeIn == "all") //shows all messages in the list
             {
-                messageListBox.Items.Clear();
+                messageListBox.Items.Clear(); //have to clear listbox to avoid duplicates, could check for delta in future
                 foreach (Message m in MessageHolder.messages.Values)
                 {
                     string messageType = m.GetType().ToString();
@@ -40,7 +42,7 @@ namespace NapierBankingSystem
                     messageListBox.Items.Add(createGrid(proc.header, body, splitval[splitval.Length - 1]));
                 }
             }
-            else
+            else //a message type has been selected so filter the messages to show only the select type
             {
                 messageListBox.Items.Clear();
                 foreach (Message m in MessageHolder.messages.Values)
@@ -50,6 +52,7 @@ namespace NapierBankingSystem
                     MessageProcessor proc = m.returnData();
                     string body = proc.body;
 
+                    //checks if the message type is the same as the selected type in combo box
                     if (splitval[splitval.Length - 1] == typeIn)
                     {      
                         messageListBox.Items.Add(createGrid(proc.header, body, splitval[splitval.Length - 1]));
@@ -58,6 +61,10 @@ namespace NapierBankingSystem
             }
         }
 
+        //creates a grid for adding to listbox
+        /// <param name="header">message header</param>
+        /// <param name="body">message body</param>
+        /// <param name="messageType">message type</param>
         private Grid createGrid(string header,string body,string messageType)
         {
             Grid myGrid = new Grid();
@@ -108,6 +115,7 @@ namespace NapierBankingSystem
             return myGrid;
         }
 
+        //used to open a window to display the selected message 
         private void messageListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -126,16 +134,18 @@ namespace NapierBankingSystem
             }
             catch(NullReferenceException ex)
             {
-                //clears the selected item in the listbox
+                //clears the selected item in the listbox, will be hit if the combobox value is changed and an item is selected
             }              
 
         }
 
+
         private void messageListBox_Loaded(object sender, RoutedEventArgs e)
         {
-            refreshData("all");
+            refreshData("all"); //shows all messages by default
         }
 
+        //used to filter the listbox messages 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             messageListBox.SelectedItem = null;

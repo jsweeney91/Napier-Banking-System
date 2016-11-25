@@ -24,9 +24,10 @@ namespace NapierBankingSystem
         public SendMessage()
         {
             InitializeComponent();
-            this.originalHeight = this.Height;
         }
 
+
+        //loads appropriate page for selection from combobox
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {     
             ComboBoxItem itm = (ComboBoxItem)mailTypeSelection.SelectedValue;

@@ -20,13 +20,18 @@ namespace NapierBankingSystem
     /// </summary>
     public partial class GenericMessageReader : Page
     {
+
         public GenericMessageReader(Message m)
         {
             InitializeComponent();
             loadContent(m);
         }
+
+        /// used to load the data inside the page 
+        /// <param name="m">Message to be viewed</param>
         public void loadContent(Message m)
         {
+            //shows SIR email data
             if (m is SIR)
             {
                 SIR message = (SIR)m;
@@ -42,6 +47,7 @@ namespace NapierBankingSystem
                 messageBodyTb.Text = message.messageBody;
                 
             }
+            //shows email data
             else if (m is Email)
             {
                 Email message = (Email)m;
@@ -52,6 +58,7 @@ namespace NapierBankingSystem
                 messageLabel.Content += "Message body: " + Environment.NewLine;
                 messageBodyTb.Text = message.messageBody;
             }
+            //shows SMS email data
             else if (m is SMS)
             {
                 SMS message = (SMS)m;
@@ -62,6 +69,9 @@ namespace NapierBankingSystem
                 messageBodyTb.Text = getAbbreviations(message.messageBody);
             }
         }
+
+        //replaces any textspeak words used inside the message
+        /// <param name="body">Message body to be checked for textspeak abbreviations</param>
         public String getAbbreviations(string body)
         {
             string[] message = body.Split(' ');

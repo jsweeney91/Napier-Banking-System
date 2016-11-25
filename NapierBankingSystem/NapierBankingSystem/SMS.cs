@@ -10,6 +10,10 @@ namespace NapierBankingSystem
 {
     public class SMS : Message
     {
+        /// <summary>
+        /// validates and adds new SMS messages if possible
+        /// </summary>
+        /// <param name="messageIn"></param>
         public SMS(String messageIn)
         {
             Regex re = new Regex(@"(S\d{9}) (\+[0-9]+) (.+)");
@@ -34,6 +38,10 @@ namespace NapierBankingSystem
             }
         }
 
+        /// <summary>
+        /// returns string message format for JSON file writing
+        /// </summary>
+        /// <returns></returns>
         public override MessageProcessor returnData()
         {
             return new MessageProcessor(this.messageID, this.sender + " " + this.messageBody);

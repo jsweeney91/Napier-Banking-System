@@ -10,8 +10,12 @@ namespace NapierBankingSystem
 {
     public class CSVReader
     {
+        //disables the message box when the unit tests are being ran
         public bool isTesting { get; set; } = false;
 
+
+        // used to read in the .csv files, can only work with two columns
+        /// <param name="fileName">Used to indicate the file path of the file being read in.</param>
         public Dictionary<string,string> readFile(string fileName)
         {
             Dictionary<string, string> output = new Dictionary<string, string>();
@@ -47,7 +51,9 @@ namespace NapierBankingSystem
             return output;
 
         }
-
+        // used to output a string keyvalue pair to a csv file
+        /// <param name="fileName">Used to indicate the file path of the file being read in.</param>
+        /// <param name="data">dictionary item to be written out to the file passed in</param>
         public void overwriteFile(string fileName,Dictionary<string, string> data)
         {
             string output = "";

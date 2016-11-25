@@ -26,6 +26,7 @@ namespace NapierBankingSystem
             InitializeComponent();
         }
 
+        //userd to import text files into the textbox
         private void importButton_Click(object sender, RoutedEventArgs e)
         {
             string contents = "";
@@ -40,8 +41,10 @@ namespace NapierBankingSystem
             plainTexttextbox.Text = contents;
         }
 
+        ///submit values inside the textbox, can be bulk input
         private void submitButton_Click(object sender, RoutedEventArgs e)
         {
+            //check for the all the messages by looking for message id format
             string pattern = @"[SET]\d{9}";
             MatchCollection matches = Regex.Matches(plainTexttextbox.Text, pattern);
             int[] indexes = new int[matches.Count];
@@ -49,6 +52,7 @@ namespace NapierBankingSystem
             string[] ids = new string[matches.Count];
             try
             {
+                //get the index of all the matches
                 foreach (Match m in matches)
                 {
                     if (ids.Contains(m.Groups[0].ToString()))
@@ -63,14 +67,16 @@ namespace NapierBankingSystem
                     indexes[count] = plainTexttextbox.Text.IndexOf(m.Groups[0].ToString());
                     count++;
                 }
+                //goes through the indexes of the id's and converts them to messages
                 for (int i = 1; i < count; i++)
                 {
                     bool hasOverwritten = true;
                     MessageProcessor proc = new MessageProcessor();
                     Message msg = proc.convertMessage(plainTexttextbox.Text.Substring(indexes[i - 1], indexes[i] - indexes[i - 1]));
                     msg.messageBody = msg.messageBody.Replace("\\n", Environment.NewLine);
-                    if (MessageHolder.messages.ContainsKey(msg.messageID))
+                    if (MessageHolder.messages.ContainsKey(msg.messageID)) //checks if id already exists inside the dictionary
                     {
+                        //prompt user to overwrite existing ID values
                         MessageBoxResult overwrite = MessageBox.Show(msg.messageID + " already exists, replace?", "Overwrite value?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                         if (overwrite == MessageBoxResult.Yes)
                         {
@@ -86,6 +92,8 @@ namespace NapierBankingSystem
                     {
                         MessageHolder.addMessage(msg.messageID,msg);
                     }
+
+                    //will be true if existing id wasnt found or if user accepts the overwrite prompt
                     if (hasOverwritten)
                     {
                         Window vm = new ViewMessage(msg.messageID);
